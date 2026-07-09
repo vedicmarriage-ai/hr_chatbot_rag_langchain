@@ -1,4 +1,4 @@
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 from app.core.config import get_settings
 
 settings = get_settings()
@@ -9,11 +9,31 @@ class LLMService:
         if model_name is None:
             model_name = settings.OLLAMA_MODEL
             
-        self.llm = Ollama(
+        # Memory-efficient settings for 8GB Mac; larger models need more RAM
+        small_models = ("tinyllama", "qwen", "llama3.2", "gemma2", "gemma")
+        if any(tag in model_name.lower() for tag in small_models):
+            llm_params = {
+                "temperature": 0.1,
+                "num_predict": 512,
+                "top_k": 40,
+                "top_p": 0.9,
+                "repeat_penalty": 1.1,
+                "num_ctx": 2048,
+            }
+        else:
+            llm_params = {
+                "temperature": 0.1,
+                "num_predict": 1024,
+                "top_k": 40,
+                "top_p": 0.9,
+                "repeat_penalty": 1.1,
+                "num_ctx": 2048,
+            }
+            
+        self.llm = OllamaLLM(
             base_url=settings.OLLAMA_BASE_URL,
             model=model_name,
-            temperature=0.5,
-            num_predict=150
+            **llm_params
         )
     
     def generate_response(self, prompt: str) -> str:

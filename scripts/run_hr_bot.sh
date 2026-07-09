@@ -10,6 +10,7 @@ print_usage() {
     echo "Commands:"
     echo "  create-vector-store    Create vector store from documents"
     echo "  run-streamlit         Run the Streamlit app"
+    echo "  run-api               Run the FastAPI server (uvicorn)"
     echo "  benchmark             Run vector store benchmarking"
     echo "  help                  Show this help message"
 }
@@ -26,6 +27,9 @@ case "$1" in
         ;;
     "run-streamlit")
         run_in_conda streamlit run "$PROJECT_ROOT/app/streamlit_app.py"
+        ;;
+    "run-api")
+        run_in_conda python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
         ;;
     "benchmark")
         run_in_conda python "$SCRIPT_DIR/benchmark_vector_stores.py"

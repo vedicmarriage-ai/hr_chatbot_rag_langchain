@@ -12,7 +12,7 @@ sys.path.append(project_root)
 
 from app.services.embedding_service import EmbeddingService, EmbeddingType
 from app.core.config import get_settings
-from app.services.document_service import DocumentService
+from app.services.document_service import DocumentService, clear_persist_directory
 
 settings = get_settings()
 
@@ -28,6 +28,11 @@ def create_vector_store(
     print(f"Starting at {datetime.now()}")
     print(f"Documents directory: {docs_dir}")
     print(f"Persist directory: {persist_dir}")
+
+    if clear_persist_directory(persist_dir):
+        print("Old vector store files deleted.")
+    else:
+        print("No existing vector store found — creating fresh.")
     
     # Create embedding service
     embedding_service = EmbeddingService(
@@ -61,6 +66,13 @@ def create_vector_store(
         persist_dir,
         embedding_service.embeddings
     )
+
+    stored_ids = vectorstore.get()["ids"]
+    if len(stored_ids) != len(chunks):
+        raise RuntimeError(
+            f"Vector store chunk mismatch: indexed {len(stored_ids)}, expected {len(chunks)}. "
+            "Old data may still be present — delete the persist directory and retry."
+        )
     
     # Save metadata
     metadata = {
@@ -88,14 +100,17 @@ def create_all_vector_stores(docs_dir: str):
     """Create vector stores for all available embedding models"""
     print("Creating vector stores for all available embedding models...")
     
-    # Get total number of models
-    total_models = 1 + len(settings.AVAILABLE_EMBEDDING_MODELS)  # 1 for Ollama
-    print(f"Total models to process: {total_models}\n")
-    
-    # Create Ollama vector store
-    print("Processing Ollama embeddings...")
-    ollama_dir = os.path.join(settings.CHROMA_PERSIST_DIRECTORY, "ollama")
-    create_vector_store(docs_dir, ollama_dir, "ollama")
+    # Create Ollama vector stores
+    for model_key in settings.AVAILABLE_OLLAMA_EMBEDDING_MODELS.keys():
+        print(f"\nProcessing Ollama {model_key} embeddings...")
+        model_config = settings.AVAILABLE_OLLAMA_EMBEDDING_MODELS[model_key]
+        print(f"Model: {model_config['name']}")
+        print(f"Description: {model_config['description']}\n")
+        ollama_dir = os.path.join(
+            settings.CHROMA_PERSIST_DIRECTORY,
+            EmbeddingService.get_vector_store_subdir(EmbeddingType.OLLAMA, model_key),
+        )
+        create_vector_store(docs_dir, ollama_dir, "ollama", model_key)
     
     # Create HuggingFace vector stores
     for model_key in settings.AVAILABLE_EMBEDDING_MODELS.keys():
@@ -141,13 +156,18 @@ def main():
     if args.embedding_type == "all":
         create_all_vector_stores(args.docs_dir)
     else:
-        if args.embedding_type == "huggingface" and not args.model_key:
-            print("Error: model-key is required for HuggingFace embeddings")
-            sys.exit(1)
-        
+        if not args.model_key:
+            args.model_key = (
+                settings.DEFAULT_OLLAMA_EMBEDDING_MODEL_KEY
+                if args.embedding_type == "ollama"
+                else settings.DEFAULT_EMBEDDING_MODEL
+            )
+
         persist_dir = os.path.join(
             settings.CHROMA_PERSIST_DIRECTORY,
-            "ollama" if args.embedding_type == "ollama" else f"hf_{args.model_key}"
+            EmbeddingService.get_vector_store_subdir(
+                EmbeddingType(args.embedding_type), args.model_key
+            ),
         )
         create_vector_store(args.docs_dir, persist_dir, args.embedding_type, args.model_key)
 

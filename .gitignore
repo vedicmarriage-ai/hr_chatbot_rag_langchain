@@ -34,9 +34,14 @@ env/
 # Environment variables
 .env
 .env.*
+.env.dev
 
-# Vector store
-data/
+# Vector store and generated local data (keep benchmark config templates)
+data/*
+!data/benchmark_results/
+data/benchmark_results/*
+!data/benchmark_results/composite_queries.json
+!data/benchmark_results/hr_retrieval_golden_template.csv
 
 # Logs
 *.log

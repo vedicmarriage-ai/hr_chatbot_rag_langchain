@@ -8,6 +8,10 @@ sys.path.append(project_root)
 
 from app.services.rag_service import RAGService
 from app.services.embedding_service import EmbeddingType, EmbeddingService
+from app.core.config import get_settings
+from app.core.rag_stacks import RAG_STACKS, DEFAULT_STACK_ID, get_stack_by_id
+
+settings = get_settings()
 
 # Initialize session state
 if "messages" not in st.session_state:
@@ -26,16 +30,17 @@ def initialize_rag_service(model_name: str, embedding_type: str, embedding_model
         embedding_model=embedding_model
     )
 
-def display_model_info(embedding_service: EmbeddingService):
-    """Display information about the selected embedding model"""
+def display_model_info(embedding_service: EmbeddingService, llm: str):
+    """Display information about the selected stack"""
     model_info = embedding_service.get_model_info()
     
-    st.sidebar.markdown("### Model Information")
-    st.sidebar.markdown(f"**Type:** {model_info['type']}")
-    st.sidebar.markdown(f"**Model:** {model_info['model']}")
+    st.sidebar.markdown("### Active Stack")
+    st.sidebar.markdown(f"**LLM:** `{llm}`")
+    st.sidebar.markdown(f"**Embedding type:** {model_info['type']}")
+    st.sidebar.markdown(f"**Embedding model:** {model_info['model']}")
     st.sidebar.markdown(f"**Description:** {model_info['description']}")
     
-    if model_info['type'] == 'huggingface':
+    if model_info['type'] in ('huggingface', 'ollama'):
         st.sidebar.markdown(f"**Size:** {model_info['size']}")
         st.sidebar.markdown(f"**Quality:** {model_info['quality']}")
         st.sidebar.markdown(f"**Speed:** {model_info['speed']}")
@@ -44,35 +49,31 @@ def display_model_info(embedding_service: EmbeddingService):
 def main():
     st.title("HR Assistant Chatbot")
     
+    stack_labels = {s["label"]: s["id"] for s in RAG_STACKS}
+    default_label = next(
+        (s["label"] for s in RAG_STACKS if s["id"] == DEFAULT_STACK_ID),
+        RAG_STACKS[0]["label"],
+    )
+
     # Sidebar for configuration
     with st.sidebar:
         st.header("Configuration")
-        
-        # Model selection
-        model_name = st.selectbox(
-            "Select LLM Model",
-            RAGService.get_available_models(),
-            index=0
+
+        selected_label = st.selectbox(
+            "Select RAG Stack",
+            options=list(stack_labels.keys()),
+            index=list(stack_labels.keys()).index(default_label),
+            help="Only tested LLM + embedding combinations are listed.",
         )
-        
-        # Embedding type selection
-        embedding_type = st.selectbox(
-            "Select Embedding Type",
-            RAGService.get_available_embedding_types(),
-            index=0
+        stack = get_stack_by_id(stack_labels[selected_label])
+        model_name = stack["llm"]
+        embedding_type = stack["embedding_type"]
+        embedding_model = stack["embedding_model"]
+
+        st.caption(
+            f"LLM: `{model_name}` · "
+            f"Embeddings: `{embedding_type}` / `{embedding_model}`"
         )
-        
-        # Embedding model selection (only show if HuggingFace is selected)
-        embedding_model = None
-        if embedding_type == "huggingface":
-            available_models = EmbeddingService.get_available_models()
-            model_options = {f"{k} ({v['description']})": k for k, v in available_models.items()}
-            selected_model = st.selectbox(
-                "Select Embedding Model",
-                options=list(model_options.keys()),
-                index=0
-            )
-            embedding_model = model_options[selected_model]
         
         # Initialize button
         if st.button("Initialize Chatbot"):
@@ -85,8 +86,7 @@ def main():
             st.session_state.session_id = None
             st.success("Chatbot initialized successfully!")
             
-            # Display model information
-            display_model_info(st.session_state.rag_service.embedding_service)
+            display_model_info(st.session_state.rag_service.embedding_service, model_name)
     
     # Display chat messages
     for message in st.session_state.messages:
@@ -116,4 +116,4 @@ def main():
                 st.session_state.messages.append({"role": "assistant", "content": response})
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -1,7 +1,7 @@
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain_community.llms import Ollama
-from langchain_community.embeddings import OllamaEmbeddings
+from langchain_ollama import OllamaLLM
+from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 from app.config import get_settings
 import uuid
@@ -10,7 +10,7 @@ settings = get_settings()
 
 class HRChatbotChain:
     def __init__(self):
-        self.llm = Ollama(
+        self.llm = OllamaLLM(
             base_url=settings.OLLAMA_BASE_URL,
             model=settings.OLLAMA_MODEL
         )

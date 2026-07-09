@@ -1,0 +1,91 @@
+{
+  "paraphrases_per_query": 3,
+  "composites": [
+    {
+      "id": "SUB-001",
+      "query": "What are the different subscription plans on Vedic Marriage?",
+      "chunks": [
+        {
+          "ref": "payment-Q1",
+          "relevance_grade": 3,
+          "notes": "Free vs paid membership overview"
+        },
+        {
+          "ref": "payment-Q2",
+          "relevance_grade": 3,
+          "notes": "Premium membership tiers"
+        }
+      ]
+    },
+    {
+      "id": "REG-001",
+      "query": "How do I register and is it free?",
+      "chunks": [
+        {
+          "ref": "registration-Q1",
+          "relevance_grade": 3,
+          "notes": "Registration / sign-up steps"
+        },
+        {
+          "ref": "registration-Q3",
+          "relevance_grade": 3,
+          "notes": "Registration cost is free"
+        }
+      ]
+    },
+    {
+      "id": "ONBOARD-001",
+      "query": "I'm new — how do I get started on Vedic Marriage?",
+      "chunks": [
+        {
+          "ref": "registration-Q1",
+          "relevance_grade": 3,
+          "notes": "Website registration entry point"
+        },
+        {
+          "ref": "profile-management-Q1",
+          "relevance_grade": 2,
+          "notes": "Creating a new profile after registration"
+        }
+      ]
+    },
+    {
+      "id": "AUTH-001",
+      "query": "I can't log in to my account — what should I do?",
+      "chunks": [
+        {
+          "ref": "login-password-Q1",
+          "relevance_grade": 2,
+          "notes": "Login and logout basics"
+        },
+        {
+          "ref": "login-password-Q3",
+          "relevance_grade": 3,
+          "notes": "Forgot password recovery"
+        }
+      ]
+    },
+    {
+      "id": "REFUND-001",
+      "query": "Can I get a refund on my premium subscription?",
+      "chunks": [
+        {
+          "match": {
+            "source": "VedicMarriage_Refund_Cancellation_Policy.docx",
+            "content_match": "1\\.1\\. No Refunds"
+          },
+          "relevance_grade": 3,
+          "notes": "Primary subscription refund clause"
+        },
+        {
+          "match": {
+            "source": "VedicMarriage_Refund_Cancellation_Policy.docx",
+            "content_match": "2\\.1\\. Subscription Renewals"
+          },
+          "relevance_grade": 2,
+          "notes": "Cancellation / renewal context"
+        }
+      ]
+    }
+  ]
+}

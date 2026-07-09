@@ -1,0 +1,10 @@
+query_id,query,gold_source,gold_faq_id,gold_section_regex,gold_keywords,relevance_grade,notes
+HR-001,What are different subscription plans the site has?,FAQ.docx,payment-Q1,Payment.*differences between free and paid,free|3 members,3,Must capture free tier evidence
+HR-001,What are different subscription plans the site has?,FAQ.docx,payment-Q2,Payment.*premium memberships available,premium|premium plus|vedic recommender,3,Must capture all paid tiers
+HR-001,What are different subscription plans the site has?,VedicMarriage_Refund_Cancellation_Policy.docx,,1\\.1\\.,free|premium|premium plus|vedic recommender,1,Optional supporting evidence from policy
+HR-002,Is registration free on Vedic Marriage?,FAQ.docx,registration-Q3,Getting started:Registration.*cost to register,registration|free,3,Primary evidence
+HR-002,Is registration free on Vedic Marriage?,FAQ.docx,payment-Q1,Payment.*differences between free and paid,free|3 members,2,Secondary evidence
+HR-003,What is the refund policy for paid plans?,VedicMarriage_Refund_Cancellation_Policy.docx,,1\\.1\\.|1\\.2\\.|1\\.3\\.|1\\.4\\.,refund|non-refundable|duplicate payments|support@vedicmarriage.ai,3,Main refund clauses
+HR-003,What is the refund policy for paid plans?,terms and condition of vedicmarriage@ai.docx,,Termination Of Services,refund|unused membership fees,1,Optional supporting legal mention
+HR-004,Can I cancel auto-renewal and what happens then?,VedicMarriage_Refund_Cancellation_Policy.docx,,2\\.1\\.,subscription renewals|cancellations|auto-renewal,3,Main cancellation clause
+HR-005,How can I reset my password?,FAQ.docx,login-password-Q3,Login & Password.*forgot my password,forgot password|sign-in page,3,Primary password reset evidence

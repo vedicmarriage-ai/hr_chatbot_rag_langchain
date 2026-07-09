@@ -14,23 +14,59 @@ class Settings(BaseSettings):
     # API settings
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     
-    # Model settings
-    DEFAULT_LLM_MODEL: str = "tinyllama"
-    DEFAULT_EMBEDDING_TYPE: str = "huggingface"
-    DEFAULT_EMBEDDING_MODEL: str = "bge-base"  # Using BGE base as default due to its excellent RAG performance
+    # Model settings - tuned for 8GB Mac (M3 Air)
+    DEFAULT_LLM_MODEL: str = "qwen2.5:1.5b"
+    DEFAULT_EMBEDDING_TYPE: str = "ollama"
+    DEFAULT_EMBEDDING_MODEL: str = "bge-base"
+    DEFAULT_OLLAMA_EMBEDDING_MODEL_KEY: str = "qwen3-0.6b"
     
-    # Ollama settings
-    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "mistral:7b-instruct-v0.3-q2_K")
+    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "qwen2.5:1.5b")
+    OLLAMA_EMBEDDING_MODEL: str = os.getenv(
+        "OLLAMA_EMBEDDING_MODEL", "qwen3-embedding:0.6b"
+    )
     
-    # Available models for local development
+    # LLM models available via Ollama (`ollama pull <name>`)
     AVAILABLE_MODELS: List[str] = [
-        "mistral:7b-instruct-v0.3-q2_K",
-        "llama2:7b-text-q2_K",
-        "llama2:7b-chat-q3_K_S",
-        "tinyllama"
+        "qwen2.5:1.5b", # ~1GB - best RAG quality on 8GB RAM
+        "llama3.2:1b",  # ~0.9GB - alternative small model
+        "gemma2:2b",
+        "tinyllama",    # ~0.3GB - small model
+        "mistral:7b-instruct-v0.3-q2_K", # 2.7GB - may hang on 8GB RAM
+        "llama2:7b-chat-q3_K_S",            # 2.9GB - may hang on 8GB RAM
     ]
     
-    # Available embedding models configuration
+    # Ollama embedding models (run via `ollama pull <name>`)
+    AVAILABLE_OLLAMA_EMBEDDING_MODELS: Dict[str, Dict] = {
+        "qwen3-0.6b": {
+            "name": "qwen3-embedding:0.6b",
+            "description": "Qwen3 embedding — best quality under 1GB, 32K context",
+            "size": "639MB",
+            "quality": "Excellent",
+            "speed": "Fast",
+            "dimensions": 1024,
+            "num_ctx": 8192,
+        },
+        "nomic": {
+            "name": "nomic-embed-text",
+            "description": "Lightweight Ollama embedding model",
+            "size": "274MB",
+            "quality": "Good",
+            "speed": "Fast",
+            "dimensions": 768,
+            "num_ctx": 8192,
+        },
+        "bge-m3": {
+            "name": "bge-m3",
+            "description": "Multilingual BGE-M3 — dense retrieval, 8K context",
+            "size": "~1.2GB",
+            "quality": "Excellent",
+            "speed": "Medium",
+            "dimensions": 1024,
+            "num_ctx": 8192,
+        },
+    }
+    
+    # HuggingFace embedding models
     AVAILABLE_EMBEDDING_MODELS: Dict[str, Dict] = {
         "mpnet": {
             "name": "sentence-transformers/all-mpnet-base-v2",
@@ -79,7 +115,14 @@ class Settings(BaseSettings):
     CHUNK_OVERLAP: int = 200
     
     # RAG settings
-    TOP_K_RESULTS: int = 4
+    TOP_K_RESULTS: int = 5
+    RERANK_ENABLED: bool = True
+    RERANK_CANDIDATES: int = 20
+    RERANK_MODEL: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    RERANK_MAX_CHUNK_CHARS: int = 800
+    RERANK_LONG_CHUNK_CHARS: int = 350
+    RERANK_QA_BONUS: float = 1.5
+    RERANK_MAX_CHUNKS_PER_SOURCE: int = 2
     SIMILARITY_THRESHOLD: float = 0.7
     
     
