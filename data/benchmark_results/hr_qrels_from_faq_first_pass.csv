@@ -1,0 +1,44 @@
+query_id,query,gold_source,gold_section_regex,gold_keywords,relevance_grade,notes
+FAQ-001,How can I register on Vedic Marriage website?,FAQ.docx,Q1\.,register|vedic|marriage|website,3,Fallback deterministic row
+FAQ-002,Can I register on behalf of a relative or a friend?,FAQ.docx,Q2\.,register|behalf|relative|friend,3,Fallback deterministic row
+FAQ-003,What is the cost to register on the Vedic Marriage website?,FAQ.docx,Q3\.,what|cost|register|vedic|marriage,3,Fallback deterministic row
+FAQ-004,What is profile Verification?,FAQ.docx,Q4\.,what|profile|verification,3,Fallback deterministic row
+FAQ-005,What criteria are used to verify a profile?,FAQ.docx,Q5\.,what|criteria|used|verify|profile,3,Fallback deterministic row
+FAQ-006,What are the advantages of registering on the Vedic Marriage website?,FAQ.docx,Q6\.,what|advantages|registering|vedic|marriage,3,Fallback deterministic row
+FAQ-007,How long does it take to register and create a Profile on Vedic Marriage website?,FAQ.docx,Q7\.,long|does|take|register|create,3,Fallback deterministic row
+FAQ-008,The form appears to be quite lengthy. Do I need to complete it in its entirety?,FAQ.docx,Q8\.,form|appears|quite|lengthy|need,3,Fallback deterministic row
+FAQ-009,"While registering and creating a profile, can I skip providing information in the mandatory fields?",FAQ.docx,Q9\.,while|registering|creating|profile|skip,3,Fallback deterministic row
+FAQ-010,Can I provide more than one email address when registering on the Vedic Marriage website?,FAQ.docx,Q10\.,provide|more|than|email|address,3,Fallback deterministic row
+FAQ-011,"What should I do if some of the fields like Religion, Caste, Mother Tongue, or Profession are not listed in the registration form?",FAQ.docx,Q11\.,what|should|some|fields|like,3,Fallback deterministic row
+FAQ-012,Why am I getting an error message during registration that says my email is already registered with the Vedic Marriage website and that I need to provide a different email?,FAQ.docx,Q12\.,getting|error|message|during|registration,3,Fallback deterministic row
+FAQ-013,How do I Login and Logout from Vedic Marriage website?,FAQ.docx,Q1\.,login|logout|from|vedic|marriage,3,Fallback deterministic row
+FAQ-014,Can other Members of Vedic Marriage website come to know when I am logged into Vedic Marriage website?,FAQ.docx,Q2\.,other|members|vedic|marriage|website,3,Fallback deterministic row
+FAQ-015,I forgot my password. What should I do to log in to the Vedic Marriage website matchmaking service?,FAQ.docx,Q3\.,forgot|password|what|should|vedic,3,Fallback deterministic row
+FAQ-016,How can I update my password?,FAQ.docx,Q4\.,update|password,3,Fallback deterministic row
+FAQ-017,How can I update my contact information?,FAQ.docx,Q5\.,update|contact|information,3,Fallback deterministic row
+FAQ-018,How do I create a new profile on the Vedic Marriage website?,FAQ.docx,Q1\.,create|profile|vedic|marriage|website,3,Fallback deterministic row
+FAQ-019,How can I edit my profile on the Vedic Marriage website?,FAQ.docx,Q2\.,edit|profile|vedic|marriage|website,3,Fallback deterministic row
+FAQ-020,Can I update any or all of my profile information from the Edit Profile page?,FAQ.docx,Q3\.,update|profile|information|from|edit,3,Fallback deterministic row
+FAQ-021,Can I change my email address after registering and creating my profile on the Vedic Marriage website?,FAQ.docx,Q4\.,change|email|address|after|registering,3,Fallback deterministic row
+FAQ-022,"Will my profile be searchable online on Google, Yahoo, and other search engines?",FAQ.docx,Q5\.,will|profile|searchable|online|google,3,Fallback deterministic row
+FAQ-023,IIs it safe to include my horoscope with my profile?,FAQ.docx,Q6\.,safe|include|horoscope|with|profile,3,Fallback deterministic row
+FAQ-024,"Can I include details about my personality, hobbies, and interests in my profile?",FAQ.docx,Q7\.,include|details|about|personality|hobbies,3,Fallback deterministic row
+FAQ-025,Is it required to add a photo to my profile? How can I upload photos?,FAQ.docx,Q8\.,required|photo|profile|upload|photos,3,Fallback deterministic row
+FAQ-026,I am now happily married to another member of the Vedic Marriage website. Can I share this wonderful news with other members? How should I do that?,FAQ.docx,Q9\.,happily|married|another|member|vedic,3,Fallback deterministic row
+FAQ-027,How can I get in touch with other members on the Vedic Marriage website?,FAQ.docx,Q1\.,touch|with|other|members|vedic,3,Fallback deterministic row
+FAQ-028,What additional benefits do I receive as a Premium Member?,FAQ.docx,Q2\.,what|additional|benefits|receive|premium,3,Fallback deterministic row
+FAQ-029,"What do Accepting, Declining, or Canceling Interest mean when interacting with a member on the Vedic Marriage website?",FAQ.docx,Q3\.,what|accepting|declining|canceling|interest,3,Fallback deterministic row
+FAQ-030,Can I decline a member after I have already accepted them?,FAQ.docx,Q4\.,decline|member|after|have|already,3,Fallback deterministic row
+FAQ-031,Can I accept a member after I have declined them?,FAQ.docx,Q5\.,accept|member|after|have|declined,3,Fallback deterministic row
+FAQ-032,"If I express interest in a member and they accept, will I be able to cancel the interest later?",FAQ.docx,Q6\.,express|interest|member|they|accept,3,Fallback deterministic row
+FAQ-033,Can I block a user who is spamming?,FAQ.docx,Q7\.,block|user|spamming,3,Fallback deterministic row
+FAQ-034,I found a profile I like on the Vedic Marriage website. Can the Customer Support Team assist me in contacting this member?,FAQ.docx,Q8\.,found|profile|like|vedic|marriage,3,Fallback deterministic row
+FAQ-035,How can I search for profiles on the Vedic Marriage website and what search options are available?,FAQ.docx,Q1\.,search|profiles|vedic|marriage|website,3,Fallback deterministic row
+FAQ-036,In what order are the search results displayed?,FAQ.docx,Q2\.,what|order|search|results|displayed,3,Fallback deterministic row
+FAQ-037,What is the Matches Percentage  and how does it work?,FAQ.docx,Q3\.,what|matches|percentage|does|work,3,Fallback deterministic row
+FAQ-038,Can I shortlist Profiles that I like on Vedic Marriage website?,FAQ.docx,Q4\.,shortlist|profiles|that|like|vedic,3,Fallback deterministic row
+FAQ-039,Can I view a list of members who have visited my profile?,FAQ.docx,Q5\.,view|list|members|have|visited,3,Fallback deterministic row
+FAQ-040,How does the filtering work and what parameters can I use to filter?,FAQ.docx,Q6\.,does|filtering|work|what|parameters,3,Fallback deterministic row
+FAQ-041,Can I apply multiple filters at once?,FAQ.docx,Q7\.,"filters, multiple",3,User wants to know if they can combine multiple filter options.
+FAQ-042,What are the differences between free and paid membership?,FAQ.docx,Q1\.,"free, paid",2,User wants to know about the distinctions between free and paid plans.
+FAQ-043,What are the different types of premium memberships available?,FAQ.docx,Q2\.,"premium, membership",2,User wants to know about various premium membership options.

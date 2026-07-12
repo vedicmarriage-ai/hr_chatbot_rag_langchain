@@ -1,0 +1,44 @@
+query_id,query,gold_source,gold_section_regex,gold_keywords,relevance_grade,notes
+FAQ-001,How can I register on Vedic Marriage website?,FAQ.docx,Q1\.,register|Vedic Marriage|website|sign up,3,Direct evidence on registration process.
+FAQ-002,Can I register on behalf of a relative or a friend?,FAQ.docx,Q2\.,register|relative|friend|on behalf,2,Broader wording about registration options.
+FAQ-003,What is the cost to register on the Vedic Marriage website?,FAQ.docx,Q3\.,cost|register|Vedic Marriage|fees,3,Direct evidence on registration costs.
+FAQ-004,What is profile Verification?,FAQ.docx,Q4\.,profile|verification|process|details,3,Direct evidence explaining profile verification.
+FAQ-005,What criteria are used to verify a profile?,FAQ.docx,Q5\.,criteria|verify|profile|requirements,3,Direct evidence on verification criteria.
+FAQ-006,What are the advantages of registering on the Vedic Marriage website?,FAQ.docx,Q6\.,advantages|register|Vedic Marriage|benefits,2,Broader wording about benefits of registration.
+FAQ-007,How long does it take to register and create a Profile on Vedic Marriage website?,FAQ.docx,Q7\.,time|register|create|profile|duration,3,Direct evidence on registration time.
+FAQ-008,The form appears to be quite lengthy. Do I need to complete it in its entirety?,FAQ.docx,Q8\.,form|lengthy|complete|entirety,2,Broader wording about form completion.
+FAQ-009,"While registering and creating a profile, can I skip providing information in the mandatory fields?",FAQ.docx,Q9\.,mandatory|fields|skip|information,2,Broader wording about mandatory information.
+FAQ-010,Can I provide more than one email address when registering on the Vedic Marriage website?,FAQ.docx,Q10\.,email|address|multiple|register|Vedic Marriage,2,Broader wording about email address options.
+FAQ-011,"What should I do if some of the fields like Religion, Caste, Mother Tongue, or Profession are not listed in the registration form?",FAQ.docx,Q11\.,Religion|Caste|Mother Tongue|Profession|registration,2,Broader wording about missing fields.
+FAQ-012,Why am I getting an error message during registration that says my email is already registered with the Vedic Marriage website and that I need to provide a different email?,FAQ.docx,Q12\.,error message|email|already registered|Vedic Marriage|registration,3,Direct evidence of email registration issue.
+FAQ-013,How do I Login and Logout from Vedic Marriage website?,FAQ.docx,Q1\.,Login|Logout|Vedic Marriage|website,3,Direct evidence on login/logout process.
+FAQ-014,Can other Members of Vedic Marriage website come to know when I am logged into Vedic Marriage website?,FAQ.docx,Q2\.,Members|logged in|Vedic Marriage|website,2,Broader wording about member visibility.
+FAQ-015,I forgot my password. What should I do to log in to the Vedic Marriage website matchmaking service?,FAQ.docx,Q3\.,forgot password|log in|Vedic Marriage|matchmaking,3,Direct evidence on password recovery.
+FAQ-016,How can I update my password?,FAQ.docx,Q4\.,update password|Vedic Marriage|website,3,Direct evidence on password update process.
+FAQ-017,How can I update my contact information?,FAQ.docx,Q5\.,update|contact information|Vedic Marriage|website,3,Direct evidence on updating contact info.
+FAQ-018,How do I create a new profile on the Vedic Marriage website?,FAQ.docx,Q1\.,create|new profile|Vedic Marriage|website,3,Direct evidence on profile creation.
+FAQ-019,How can I edit my profile on the Vedic Marriage website?,FAQ.docx,Q2\.,edit|profile|Vedic Marriage|website,3,Direct evidence on profile editing.
+FAQ-020,Can I update any or all of my profile information from the Edit Profile page?,FAQ.docx,Q3\.,update|profile information|Edit Profile|page,2,Broader wording about profile updates.
+FAQ-021,Can I change my email address after registering and creating my profile on the Vedic Marriage website?,FAQ.docx,Q4\.,email address|change|profile|registration,3,Direct evidence about changing email.
+FAQ-022,"Will my profile be searchable online on Google, Yahoo, and other search engines?",FAQ.docx,Q5\.,profile|searchable|Google|Yahoo|search engines,3,Direct evidence regarding profile visibility.
+FAQ-023,Is it safe to include my horoscope with my profile?,FAQ.docx,Q6\.,horoscope|include|profile|safety,2,Broader wording about safety of including horoscope.
+FAQ-024,"Can I include details about my personality, hobbies, and interests in my profile?",FAQ.docx,Q7\.,personality|hobbies|interests|profile|include,3,Direct evidence on including personal details.
+FAQ-025,Is it required to add a photo to my profile? How can I upload photos?,FAQ.docx,Q8\.,photo|upload|profile|required,3,Direct evidence about photo requirements.
+FAQ-026,I am now happily married to another member of the Vedic Marriage website. Can I share this wonderful news with other members? How should I do that?,FAQ.docx,Q9\.,married|share|news|members|Vedic Marriage,2,Broader wording about sharing news.
+FAQ-027,How can I get in touch with other members on the Vedic Marriage website?,FAQ.docx,Q1\.,get in touch|members|Vedic Marriage|contact,2,Broader wording about contacting members.
+FAQ-028,What additional benefits do I receive as a Premium Member?,FAQ.docx,Q2\.,Premium Member|benefits|additional,2,Broader wording about Premium Member benefits.
+FAQ-029,"What do Accepting, Declining, or Canceling Interest mean when interacting with a member on the Vedic Marriage website?",FAQ.docx,Q3\.,Accepting|Declining|Canceling Interest|interacting|members,2,Broader wording about interaction terms.
+FAQ-030,Can I decline a member after I have already accepted them?,FAQ.docx,Q4\.,decline|member|accepted|Vedic Marriage,3,Direct evidence about declining accepted members.
+FAQ-031,Can I accept a member after I have declined them?,FAQ.docx,Q5\.,accept|decline|member|registration,2,Broader wording about accepting members.
+FAQ-032,"If I express interest in a member and they accept, will I be able to cancel the interest later?",FAQ.docx,Q6\.,cancel|interest|member|accept,3,Direct evidence about canceling interest.
+FAQ-033,Can I block a user who is spamming?,FAQ.docx,Q7\.,block|user|spamming|registration,2,Broader wording about blocking users.
+FAQ-034,I found a profile I like on the Vedic Marriage website. Can the Customer Support Team assist me in contacting this member?,FAQ.docx,Q8\.,profile|contact|Customer Support|assist,3,Direct evidence about contacting members.
+FAQ-035,How can I search for profiles on the Vedic Marriage website and what search options are available?,FAQ.docx,Q1\.,search|profiles|options|Vedic Marriage,3,Direct evidence about searching profiles.
+FAQ-036,In what order are the search results displayed?,FAQ.docx,Q2\.,order|search results|displayed,3,Direct evidence about order of search results.
+FAQ-037,What is the Matches Percentage and how does it work?,FAQ.docx,Q3\.,Matches Percentage|how it works,3,Direct evidence about Matches Percentage.
+FAQ-038,Can I shortlist Profiles that I like on Vedic Marriage website?,FAQ.docx,Q4\.,shortlist|profiles|like|Vedic Marriage,3,Direct evidence about shortlisting profiles.
+FAQ-039,Can I view a list of members who have visited my profile?,FAQ.docx,Q5\.,view|list|members|visited|profile,3,Direct evidence about viewing profile visitors.
+FAQ-040,How does the filtering work and what parameters can I use to filter?,FAQ.docx,Q6\.,filtering|work|parameters|filter,3,Direct evidence about filtering parameters.
+FAQ-041,Can I apply multiple filters at once?,FAQ.docx,Q7\.,multiple|filters|apply|once,3,Direct evidence found in the documentation.
+FAQ-042,What are the differences between free and paid membership?,FAQ.docx,Q1\.,differences|free|paid|membership,2,"Broader wording, general comparison."
+FAQ-043,What are the different types of premium memberships available?,FAQ.docx,Q2\.,types|premium|memberships|available,2,"Broader wording, overview of options."

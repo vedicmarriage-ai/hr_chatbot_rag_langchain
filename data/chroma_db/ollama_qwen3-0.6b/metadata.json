@@ -1,0 +1,16 @@
+{
+  "embedding_type": "ollama",
+  "model_key": "qwen3-0.6b",
+  "embedding_dimension": 1024,
+  "created_at": "2026-07-07T18:01:44.611481",
+  "num_chunks": 105,
+  "model_info": {
+    "type": "ollama",
+    "model": "qwen3-embedding:0.6b",
+    "description": "Qwen3 embedding \u2014 best quality under 1GB, 32K context",
+    "size": "639MB",
+    "quality": "Excellent",
+    "speed": "Fast",
+    "dimensions": 1024
+  }
+}

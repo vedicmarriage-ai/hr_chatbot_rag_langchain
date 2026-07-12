@@ -4,18 +4,19 @@ __pycache__/
 *$py.class
 *.so
 .Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
+# Build / packaging artifacts (root only)
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -36,19 +37,23 @@ env/
 .env.*
 .env.dev
 
-# Vector store and generated local data (keep benchmark config templates)
-data/*
-!data/benchmark_results/
-data/benchmark_results/*
-!data/benchmark_results/composite_queries.json
-!data/benchmark_results/hr_retrieval_golden_template.csv
+# Vector store and generated local data — intentionally tracked for now
+# data/*
+# !data/benchmark_results/
+# data/benchmark_results/*
+# !data/benchmark_results/composite_queries.json
+# !data/benchmark_results/hr_retrieval_golden_template.csv
+
+# Word lock / temp files under docs
+~$*
 
 # Logs
 *.log
 logs/
 
-# Coverage
-coverage-reports/
+# Coverage (keep folder structure; ignore generated reports)
+coverage-reports/*
+!coverage-reports/.gitkeep
 .coverage
 htmlcov/
 

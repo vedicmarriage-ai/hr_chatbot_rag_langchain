@@ -1,0 +1,6 @@
+query_id,query,response_time,precision_at_k,recall_at_k,mrr,map,ndcg_at_k,model
+HR-001,What are different subscription plans the site has?,0.12536907196044922,0.4,0.6666666666666666,1.0,0.4666666666666666,0.8146656240744838,hf_bge-base
+HR-002,Is registration free on Vedic Marriage?,0.039748191833496094,0.2,0.5,1.0,0.5,0.7871546029909718,hf_bge-base
+HR-003,What is the refund policy for paid plans?,0.031845808029174805,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+HR-004,Can I cancel auto-renewal and what happens then?,0.029958009719848633,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+HR-005,How can I reset my password?,0.03260183334350586,0.2,1.0,1.0,1.0,1.0,hf_bge-base

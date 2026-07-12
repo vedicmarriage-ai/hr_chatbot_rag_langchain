@@ -1,0 +1,44 @@
+query_id,query,response_time,precision_at_k,recall_at_k,mrr,map,ndcg_at_k,model
+FAQ-001,How can I register on Vedic Marriage website?,0.13694000244140625,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-002,Can I register on behalf of a relative or a friend?,0.033058881759643555,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-003,What is the cost to register on the Vedic Marriage website?,0.042716264724731445,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-004,What is profile Verification?,0.036019086837768555,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-005,What criteria are used to verify a profile?,0.0355992317199707,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-006,What are the advantages of registering on the Vedic Marriage website?,0.031003952026367188,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-007,How long does it take to register and create a Profile on Vedic Marriage website?,0.0317082405090332,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-008,The form appears to be quite lengthy. Do I need to complete it in its entirety?,0.03145480155944824,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-009,"While registering and creating a profile, can I skip providing information in the mandatory fields?",0.030713796615600586,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-010,Can I provide more than one email address when registering on the Vedic Marriage website?,0.033306121826171875,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-011,"What should I do if some of the fields like Religion, Caste, Mother Tongue, or Profession are not listed in the registration form?",0.032670021057128906,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-012,Why am I getting an error message during registration that says my email is already registered with the Vedic Marriage website and that I need to provide a different email?,0.031216144561767578,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-013,How do I Login and Logout from Vedic Marriage website?,0.03086090087890625,0.2,1.0,0.3333333333333333,0.3333333333333333,0.5,hf_bge-base
+FAQ-014,Can other Members of Vedic Marriage website come to know when I am logged into Vedic Marriage website?,0.02985215187072754,0.2,1.0,0.2,0.2,0.38685280723454163,hf_bge-base
+FAQ-015,I forgot my password. What should I do to log in to the Vedic Marriage website matchmaking service?,0.02903914451599121,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-016,How can I update my password?,0.03270697593688965,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-017,How can I update my contact information?,0.03182697296142578,0.2,1.0,0.2,0.2,0.38685280723454163,hf_bge-base
+FAQ-018,How do I create a new profile on the Vedic Marriage website?,0.034497976303100586,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-019,How can I edit my profile on the Vedic Marriage website?,0.030976057052612305,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-020,Can I update any or all of my profile information from the Edit Profile page?,0.02988910675048828,0.2,1.0,0.3333333333333333,0.3333333333333333,0.5,hf_bge-base
+FAQ-021,Can I change my email address after registering and creating my profile on the Vedic Marriage website?,0.03205513954162598,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-022,"Will my profile be searchable online on Google, Yahoo, and other search engines?",0.0312349796295166,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-023,Is it safe to include my horoscope with my profile?,0.03153204917907715,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-024,"Can I include details about my personality, hobbies, and interests in my profile?",0.030620813369750977,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-025,Is it required to add a photo to my profile? How can I upload photos?,0.029939889907836914,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-026,I am now happily married to another member of the Vedic Marriage website. Can I share this wonderful news with other members? How should I do that?,0.025487899780273438,0.2,1.0,0.3333333333333333,0.3333333333333333,0.5,hf_bge-base
+FAQ-027,How can I get in touch with other members on the Vedic Marriage website?,0.029945850372314453,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-028,What additional benefits do I receive as a Premium Member?,0.03118300437927246,0.2,1.0,0.2,0.2,0.38685280723454163,hf_bge-base
+FAQ-029,"What do Accepting, Declining, or Canceling Interest mean when interacting with a member on the Vedic Marriage website?",0.026784181594848633,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-030,Can I decline a member after I have already accepted them?,0.02974104881286621,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-031,Can I accept a member after I have declined them?,0.030812978744506836,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-032,"If I express interest in a member and they accept, will I be able to cancel the interest later?",0.02697277069091797,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-033,Can I block a user who is spamming?,0.030494213104248047,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-034,I found a profile I like on the Vedic Marriage website. Can the Customer Support Team assist me in contacting this member?,0.027076005935668945,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-035,How can I search for profiles on the Vedic Marriage website and what search options are available?,0.03042292594909668,0.2,1.0,0.3333333333333333,0.3333333333333333,0.5,hf_bge-base
+FAQ-036,In what order are the search results displayed?,0.02872180938720703,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-037,What is the Matches Percentage and how does it work?,0.030487775802612305,0.0,0.0,0.0,0.0,0.0,hf_bge-base
+FAQ-038,Can I shortlist Profiles that I like on Vedic Marriage website?,0.03057098388671875,0.2,1.0,0.2,0.2,0.38685280723454163,hf_bge-base
+FAQ-039,Can I view a list of members who have visited my profile?,0.03161120414733887,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-040,How does the filtering work and what parameters can I use to filter?,0.030572175979614258,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-041,Can I apply multiple filters at once?,0.03842425346374512,0.2,1.0,1.0,1.0,1.0,hf_bge-base
+FAQ-042,What are the differences between free and paid membership?,0.03581380844116211,0.2,1.0,0.3333333333333333,0.3333333333333333,0.5,hf_bge-base
+FAQ-043,What are the different types of premium memberships available?,0.03465580940246582,0.2,1.0,1.0,1.0,1.0,hf_bge-base

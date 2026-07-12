@@ -1,0 +1,12 @@
+{
+  "embedding_type": "ollama",
+  "model_key": null,
+  "embedding_dimension": 768,
+  "created_at": "2026-07-07T00:00:05.496889",
+  "num_chunks": 66,
+  "model_info": {
+    "type": "ollama",
+    "model": "nomic-embed-text",
+    "description": "Ollama-based embeddings"
+  }
+}

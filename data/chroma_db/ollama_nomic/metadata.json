@@ -1,0 +1,16 @@
+{
+  "embedding_type": "ollama",
+  "model_key": "nomic",
+  "embedding_dimension": 768,
+  "created_at": "2026-07-07T18:40:13.903101",
+  "num_chunks": 105,
+  "model_info": {
+    "type": "ollama",
+    "model": "nomic-embed-text",
+    "description": "Lightweight Ollama embedding model",
+    "size": "274MB",
+    "quality": "Good",
+    "speed": "Fast",
+    "dimensions": 768
+  }
+}

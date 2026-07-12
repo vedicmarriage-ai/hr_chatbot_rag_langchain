@@ -1,0 +1,91 @@
+{
+  "model_metrics": {
+    "hf_bge-base": {
+      "response_time": {
+        "mean": 0.0356,
+        "std": 0.0111,
+        "min": 0.0293,
+        "max": 0.0667
+      },
+      "relevance_score": {
+        "mean": 0.95,
+        "std": 0.1581,
+        "min": 0.5,
+        "max": 1.0
+      }
+    },
+    "hf_bge-small": {
+      "response_time": {
+        "mean": 0.012,
+        "std": 0.0075,
+        "min": 0.009,
+        "max": 0.0334
+      },
+      "relevance_score": {
+        "mean": 0.925,
+        "std": 0.2372,
+        "min": 0.25,
+        "max": 1.0
+      }
+    },
+    "hf_minilm": {
+      "response_time": {
+        "mean": 0.0106,
+        "std": 0.0126,
+        "min": 0.0058,
+        "max": 0.0463
+      },
+      "relevance_score": {
+        "mean": 0.95,
+        "std": 0.1581,
+        "min": 0.5,
+        "max": 1.0
+      }
+    },
+    "hf_mpnet": {
+      "response_time": {
+        "mean": 0.0384,
+        "std": 0.0124,
+        "min": 0.0288,
+        "max": 0.0724
+      },
+      "relevance_score": {
+        "mean": 0.925,
+        "std": 0.2372,
+        "min": 0.25,
+        "max": 1.0
+      }
+    },
+    "hf_paraphrase": {
+      "response_time": {
+        "mean": 0.0098,
+        "std": 0.0123,
+        "min": 0.0054,
+        "max": 0.0448
+      },
+      "relevance_score": {
+        "mean": 0.95,
+        "std": 0.1581,
+        "min": 0.5,
+        "max": 1.0
+      }
+    },
+    "ollama": {
+      "response_time": {
+        "mean": 0.0293,
+        "std": 0.0118,
+        "min": 0.0206,
+        "max": 0.058
+      },
+      "relevance_score": {
+        "mean": 0.95,
+        "std": 0.1581,
+        "min": 0.5,
+        "max": 1.0
+      }
+    }
+  },
+  "best_model": "hf_bge-base",
+  "best_embedding_type": "huggingface",
+  "best_embedding_model": "bge-base"
+}

@@ -1,0 +1,61 @@
+query,response_time,relevance_score,model
+What is the company's policy on remote work?,0.04629230499267578,1.0,hf_minilm
+How many vacation days do employees get?,0.009058952331542969,0.5,hf_minilm
+What is the process for requesting time off?,0.007455110549926758,1.0,hf_minilm
+What are the working hours?,0.006582021713256836,1.0,hf_minilm
+How does the performance review process work?,0.007328987121582031,1.0,hf_minilm
+What is the dress code policy?,0.005824089050292969,1.0,hf_minilm
+How do I report a workplace issue?,0.0059392452239990234,1.0,hf_minilm
+What are the benefits offered to employees?,0.005972862243652344,1.0,hf_minilm
+How do I request a salary review?,0.006083011627197266,1.0,hf_minilm
+What is the process for taking sick leave?,0.005808115005493164,1.0,hf_minilm
+What is the company's policy on remote work?,0.044777870178222656,1.0,hf_paraphrase
+How many vacation days do employees get?,0.008028030395507812,0.5,hf_paraphrase
+What is the process for requesting time off?,0.005805015563964844,1.0,hf_paraphrase
+What are the working hours?,0.0053980350494384766,1.0,hf_paraphrase
+How does the performance review process work?,0.005877971649169922,1.0,hf_paraphrase
+What is the dress code policy?,0.005872964859008789,1.0,hf_paraphrase
+How do I report a workplace issue?,0.005417823791503906,1.0,hf_paraphrase
+What are the benefits offered to employees?,0.0056650638580322266,1.0,hf_paraphrase
+How do I request a salary review?,0.005502939224243164,1.0,hf_paraphrase
+What is the process for taking sick leave?,0.00613713264465332,1.0,hf_paraphrase
+What is the company's policy on remote work?,0.07236576080322266,1.0,hf_mpnet
+How many vacation days do employees get?,0.03988504409790039,0.25,hf_mpnet
+What is the process for requesting time off?,0.03319096565246582,1.0,hf_mpnet
+What are the working hours?,0.03530097007751465,1.0,hf_mpnet
+How does the performance review process work?,0.033663034439086914,1.0,hf_mpnet
+What is the dress code policy?,0.04047513008117676,1.0,hf_mpnet
+How do I report a workplace issue?,0.03406786918640137,1.0,hf_mpnet
+What are the benefits offered to employees?,0.03386688232421875,1.0,hf_mpnet
+How do I request a salary review?,0.032605886459350586,1.0,hf_mpnet
+What is the process for taking sick leave?,0.028800010681152344,1.0,hf_mpnet
+What is the company's policy on remote work?,0.033400774002075195,1.0,hf_bge-small
+How many vacation days do employees get?,0.0103759765625,0.25,hf_bge-small
+What is the process for requesting time off?,0.009654998779296875,1.0,hf_bge-small
+What are the working hours?,0.009180784225463867,1.0,hf_bge-small
+How does the performance review process work?,0.010078907012939453,1.0,hf_bge-small
+What is the dress code policy?,0.008981943130493164,1.0,hf_bge-small
+How do I report a workplace issue?,0.009813070297241211,1.0,hf_bge-small
+What are the benefits offered to employees?,0.01023721694946289,1.0,hf_bge-small
+How do I request a salary review?,0.009470939636230469,1.0,hf_bge-small
+What is the process for taking sick leave?,0.008970022201538086,1.0,hf_bge-small
+What is the company's policy on remote work?,0.06673407554626465,1.0,hf_bge-base
+How many vacation days do employees get?,0.03716588020324707,0.5,hf_bge-base
+What is the process for requesting time off?,0.029268980026245117,1.0,hf_bge-base
+What are the working hours?,0.0312650203704834,1.0,hf_bge-base
+How does the performance review process work?,0.031903982162475586,1.0,hf_bge-base
+What is the dress code policy?,0.032998085021972656,1.0,hf_bge-base
+How do I report a workplace issue?,0.03147387504577637,1.0,hf_bge-base
+What are the benefits offered to employees?,0.03261590003967285,1.0,hf_bge-base
+How do I request a salary review?,0.03194117546081543,1.0,hf_bge-base
+What is the process for taking sick leave?,0.030733823776245117,1.0,hf_bge-base
+What is the company's policy on remote work?,0.05799984931945801,1.0,ollama
+How many vacation days do employees get?,0.03553318977355957,0.5,ollama
+What is the process for requesting time off?,0.0230410099029541,1.0,ollama
+What are the working hours?,0.02066516876220703,1.0,ollama
+How does the performance review process work?,0.02060389518737793,1.0,ollama
+What is the dress code policy?,0.02104806900024414,1.0,ollama
+How do I report a workplace issue?,0.02357196807861328,1.0,ollama
+What are the benefits offered to employees?,0.023832082748413086,1.0,ollama
+How do I request a salary review?,0.037690162658691406,1.0,ollama
+What is the process for taking sick leave?,0.029174089431762695,1.0,ollama

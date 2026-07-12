@@ -1,0 +1,16 @@
+{
+  "embedding_type": "ollama",
+  "model_key": "bge-m3",
+  "embedding_dimension": 1024,
+  "created_at": "2026-07-07T18:40:21.825399",
+  "num_chunks": 105,
+  "model_info": {
+    "type": "ollama",
+    "model": "bge-m3",
+    "description": "Multilingual BGE-M3 \u2014 dense retrieval, 8K context",
+    "size": "~1.2GB",
+    "quality": "Excellent",
+    "speed": "Medium",
+    "dimensions": 1024
+  }
+}

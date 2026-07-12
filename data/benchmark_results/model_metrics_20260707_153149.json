@@ -1,0 +1,50 @@
+{
+  "benchmark_config": {
+    "dataset_path": "data/benchmark_results/hr_qrels_from_faq_openai_first_pass.csv",
+    "top_k": 5,
+    "query_count": 43
+  },
+  "model_metrics": {
+    "hf_bge-base": {
+      "response_time": {
+        "mean": 0.034,
+        "std": 0.0164,
+        "min": 0.0255,
+        "max": 0.1369
+      },
+      "precision_at_k": {
+        "mean": 0.1349,
+        "std": 0.0948,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6744,
+        "std": 0.4741,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5225,
+        "std": 0.4623,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5225,
+        "std": 0.4623,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5592,
+        "std": 0.4472,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "best_model": "hf_bge-base",
+  "best_embedding_type": "huggingface",
+  "best_embedding_model": "bge-base"
+}

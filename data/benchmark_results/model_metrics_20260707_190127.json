@@ -1,0 +1,164 @@
+{
+  "benchmark_config": {
+    "dataset_path": "data/benchmark_results/hr_qrels_with_paraphrases.csv",
+    "top_k": 5,
+    "query_count": 615
+  },
+  "model_metrics": {
+    "hf_bge-base": {
+      "response_time": {
+        "mean": 0.0352,
+        "std": 0.0059,
+        "min": 0.0276,
+        "max": 0.1459
+      },
+      "precision_at_k": {
+        "mean": 0.1223,
+        "std": 0.0976,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6114,
+        "std": 0.4878,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.521,
+        "std": 0.4674,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.521,
+        "std": 0.4674,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5435,
+        "std": 0.4626,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_bge-m3": {
+      "response_time": {
+        "mean": 0.1491,
+        "std": 0.016,
+        "min": 0.1314,
+        "max": 0.3106
+      },
+      "precision_at_k": {
+        "mean": 0.1272,
+        "std": 0.0963,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6358,
+        "std": 0.4816,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5664,
+        "std": 0.4664,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5664,
+        "std": 0.4664,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.584,
+        "std": 0.4631,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_nomic": {
+      "response_time": {
+        "mean": 0.0309,
+        "std": 0.0058,
+        "min": 0.0249,
+        "max": 0.1456
+      },
+      "precision_at_k": {
+        "mean": 0.1249,
+        "std": 0.0969,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6244,
+        "std": 0.4847,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5454,
+        "std": 0.4659,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5454,
+        "std": 0.4659,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5654,
+        "std": 0.4624,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_qwen3-0.6b": {
+      "response_time": {
+        "mean": 0.1366,
+        "std": 0.17,
+        "min": 0.0995,
+        "max": 3.9549
+      },
+      "precision_at_k": {
+        "mean": 0.1249,
+        "std": 0.0969,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6244,
+        "std": 0.4847,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5408,
+        "std": 0.4665,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5408,
+        "std": 0.4665,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5618,
+        "std": 0.4621,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "best_model": "ollama_bge-m3",
+  "best_embedding_type": "ollama",
+  "best_embedding_model": null
+}

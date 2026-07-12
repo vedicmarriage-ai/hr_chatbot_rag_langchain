@@ -1,0 +1,164 @@
+{
+  "benchmark_config": {
+    "dataset_path": "data/benchmark_results/hr_qrels_from_faq_openai_first_pass.csv",
+    "top_k": 5,
+    "query_count": 43
+  },
+  "model_metrics": {
+    "hf_bge-base": {
+      "response_time": {
+        "mean": 0.0353,
+        "std": 0.0117,
+        "min": 0.0267,
+        "max": 0.1077
+      },
+      "precision_at_k": {
+        "mean": 0.1349,
+        "std": 0.0948,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6744,
+        "std": 0.4741,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5225,
+        "std": 0.4623,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5225,
+        "std": 0.4623,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5592,
+        "std": 0.4472,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_bge-m3": {
+      "response_time": {
+        "mean": 0.1731,
+        "std": 0.0924,
+        "min": 0.1436,
+        "max": 0.7388
+      },
+      "precision_at_k": {
+        "mean": 0.1395,
+        "std": 0.0929,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6977,
+        "std": 0.4647,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.6415,
+        "std": 0.4624,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.6415,
+        "std": 0.4624,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.6556,
+        "std": 0.4564,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_nomic": {
+      "response_time": {
+        "mean": 0.0973,
+        "std": 0.1789,
+        "min": 0.0275,
+        "max": 1.1536
+      },
+      "precision_at_k": {
+        "mean": 0.1302,
+        "std": 0.0964,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.6512,
+        "std": 0.4822,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.5562,
+        "std": 0.4625,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.5562,
+        "std": 0.4625,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.5803,
+        "std": 0.4576,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "ollama_qwen3-0.6b": {
+      "response_time": {
+        "mean": 0.2749,
+        "std": 0.7806,
+        "min": 0.0995,
+        "max": 5.1984
+      },
+      "precision_at_k": {
+        "mean": 0.1442,
+        "std": 0.0908,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "recall_at_k": {
+        "mean": 0.7209,
+        "std": 0.4539,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "mrr": {
+        "mean": 0.7093,
+        "std": 0.4529,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "map": {
+        "mean": 0.7093,
+        "std": 0.4529,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "ndcg_at_k": {
+        "mean": 0.7123,
+        "std": 0.4519,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "best_model": "ollama_qwen3-0.6b",
+  "best_embedding_type": "ollama",
+  "best_embedding_model": null
+}
