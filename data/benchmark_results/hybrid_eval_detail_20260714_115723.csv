@@ -1,0 +1,247 @@
+mode,query_id,query,bucket,response_time,precision_at_k,recall_at_k,mrr,ndcg_at_k
+dense,FAQ-001,How can I register on Vedic Marriage website?,FAQ,3.1914491653442383,0.2,1.0,1.0,1.0
+dense,FAQ-002,Can I register on behalf of a relative or a friend?,FAQ,0.2932729721069336,0.2,1.0,1.0,1.0
+dense,FAQ-003,What is the cost to register on the Vedic Marriage website?,FAQ,0.20934677124023438,0.2,1.0,1.0,1.0
+dense,FAQ-004,What is profile Verification?,FAQ,0.17304015159606934,0.2,1.0,1.0,1.0
+dense,FAQ-005,What criteria are used to verify a profile?,FAQ,0.2919888496398926,0.2,1.0,1.0,1.0
+dense,FAQ-006,What are the advantages of registering on the Vedic Marriage website?,FAQ,0.11017107963562012,0.2,1.0,0.3333333333333333,0.5
+dense,FAQ-007,How long does it take to register and create a Profile on Vedic Marriage website?,FAQ,0.10807490348815918,0.2,1.0,1.0,1.0
+dense,FAQ-008,The form appears to be quite lengthy. Do I need to complete it in its entirety?,FAQ,0.11148428916931152,0.2,1.0,1.0,1.0
+dense,FAQ-009,"While registering and creating a profile, can I skip providing information in the mandatory fields?",FAQ,0.16071224212646484,0.2,1.0,1.0,1.0
+dense,FAQ-010,Can I provide more than one email address when registering on the Vedic Marriage website?,FAQ,0.19287323951721191,0.2,1.0,1.0,1.0
+dense,FAQ-011,"What should I do if some of the fields like Religion, Caste, Mother Tongue, or Profession are not listed in the registration form?",FAQ,0.12763190269470215,0.2,1.0,1.0,1.0
+dense,FAQ-012,Why am I getting an error message during registration that says my email is already registered with the Vedic Marriage website and that I need to provide a different email?,FAQ,0.13380193710327148,0.2,1.0,1.0,1.0
+dense,FAQ-013,How do I Login and Logout from Vedic Marriage website?,FAQ,0.11335897445678711,0.2,1.0,1.0,1.0
+dense,FAQ-014,Can other Members of Vedic Marriage website come to know when I am logged into Vedic Marriage website?,FAQ,0.10822606086730957,0.2,1.0,1.0,1.0
+dense,FAQ-015,I forgot my password. What should I do to log in to the Vedic Marriage website matchmaking service?,FAQ,0.1096200942993164,0.2,1.0,1.0,1.0
+dense,FAQ-016,How can I update my password?,FAQ,0.11323118209838867,0.0,0.0,0.0,0.0
+dense,FAQ-017,How can I update my contact information?,FAQ,0.09863090515136719,0.2,1.0,1.0,1.0
+dense,FAQ-018,How do I create a new profile on the Vedic Marriage website?,FAQ,0.1054677963256836,0.2,1.0,1.0,1.0
+dense,FAQ-019,How can I edit my profile on the Vedic Marriage website?,FAQ,0.10399913787841797,0.2,1.0,1.0,1.0
+dense,FAQ-020,Can I update any or all of my profile information from the Edit Profile page?,FAQ,0.10291814804077148,0.2,1.0,1.0,1.0
+dense,FAQ-021,Can I change my email address after registering and creating my profile on the Vedic Marriage website?,FAQ,0.10699892044067383,0.2,1.0,1.0,1.0
+dense,FAQ-022,"Will my profile be searchable online on Google, Yahoo, and other search engines?",FAQ,0.10602402687072754,0.2,1.0,1.0,1.0
+dense,FAQ-023,Is it safe to include my horoscope with my profile?,FAQ,0.10329771041870117,0.2,1.0,1.0,1.0
+dense,FAQ-024,"Can I include details about my personality, hobbies, and interests in my profile?",FAQ,0.10695910453796387,0.2,1.0,1.0,1.0
+dense,FAQ-025,Is it required to add a photo to my profile? How can I upload photos?,FAQ,0.10591602325439453,0.2,1.0,1.0,1.0
+dense,FAQ-026,I am now happily married to another member of the Vedic Marriage website. Can I share this wonderful news with other members? How should I do that?,FAQ,0.10676383972167969,0.2,1.0,1.0,1.0
+dense,FAQ-027,How can I get in touch with other members on the Vedic Marriage website?,FAQ,0.10901808738708496,0.2,1.0,1.0,1.0
+dense,FAQ-028,What additional benefits do I receive as a Premium Member?,FAQ,0.1117258071899414,0.2,1.0,1.0,1.0
+dense,FAQ-029,"What do Accepting, Declining, or Canceling Interest mean when interacting with a member on the Vedic Marriage website?",FAQ,0.10391092300415039,0.2,1.0,1.0,1.0
+dense,FAQ-030,Can I decline a member after I have already accepted them?,FAQ,0.10433316230773926,0.2,1.0,1.0,1.0
+dense,FAQ-031,Can I accept a member after I have declined them?,FAQ,0.10666608810424805,0.2,1.0,1.0,1.0
+dense,FAQ-032,"If I express interest in a member and they accept, will I be able to cancel the interest later?",FAQ,0.10511016845703125,0.2,1.0,1.0,1.0
+dense,FAQ-033,Can I block a user who is spamming?,FAQ,0.1043252944946289,0.2,1.0,1.0,1.0
+dense,FAQ-034,I found a profile I like on the Vedic Marriage website. Can the Customer Support Team assist me in contacting this member?,FAQ,0.10485506057739258,0.2,1.0,1.0,1.0
+dense,FAQ-035,How can I search for profiles on the Vedic Marriage website and what search options are available?,FAQ,0.10455989837646484,0.2,1.0,1.0,1.0
+dense,FAQ-036,In what order are the search results displayed?,FAQ,0.10541796684265137,0.2,1.0,1.0,1.0
+dense,FAQ-037,What is the Matches Percentage and how does it work?,FAQ,0.10307884216308594,0.0,0.0,0.0,0.0
+dense,FAQ-038,Can I shortlist Profiles that I like on Vedic Marriage website?,FAQ,0.10769796371459961,0.2,1.0,1.0,1.0
+dense,FAQ-039,Can I view a list of members who have visited my profile?,FAQ,0.10543513298034668,0.2,1.0,1.0,1.0
+dense,FAQ-040,How does the filtering work and what parameters can I use to filter?,FAQ,0.10616612434387207,0.2,1.0,1.0,1.0
+dense,FAQ-041,Can I apply multiple filters at once?,FAQ,0.10555505752563477,0.2,1.0,1.0,1.0
+dense,FAQ-042,What are the differences between free and paid membership?,FAQ,0.11643791198730469,0.2,1.0,1.0,1.0
+dense,FAQ-043,What are the different types of premium memberships available?,FAQ,0.11664295196533203,0.2,1.0,1.0,1.0
+dense,REFUND-001,What is the refund and cancellation policy?,Refund,0.11524724960327148,0.2,1.0,1.0,1.0
+dense,REFUND-002,Can I get a refund for my subscription plan?,Refund,0.10885095596313477,0.2,1.0,1.0,1.0
+dense,REFUND-003,What should I do if I made a duplicate payment?,Refund,0.11528205871582031,0.2,1.0,1.0,1.0
+dense,REFUND-004,What happens if a service fails to deliver?,Refund,0.18261981010437012,0.2,1.0,0.5,0.6309297535714575
+dense,REFUND-005,How do I request a refund?,Refund,0.25055480003356934,0.2,1.0,1.0,1.0
+dense,REFUND-006,Will I get a refund if I cancel my subscription?,Refund,0.12279987335205078,0.2,1.0,1.0,1.0
+dense,REFUND-007,Can I deactivate my profile without losing my data?,Refund,0.12149477005004883,0.2,1.0,1.0,1.0
+dense,REFUND-007-a,What happens if I delete my account?,Refund,0.11605620384216309,0.2,1.0,1.0,1.0
+dense,REFUND-008,Are there exceptions to the refund policy?,Refund,0.11824488639831543,0.2,1.0,1.0,1.0
+dense,REFUND-008-a,What if I live in the EU regarding refunds?,Refund,0.11503005027770996,0.0,0.0,0.0,0.0
+dense,REFUND-009,How do I resolve a dispute with VedicMarriage?,Refund,0.11096811294555664,0.2,1.0,1.0,1.0
+dense,REFUND-009-a,What happens if mediation fails?,Refund,0.11407995223999023,0.2,1.0,1.0,1.0
+dense,REFUND-010,What is force majeure in the cancellation policy?,Refund,0.10946416854858398,0.2,1.0,0.25,0.43067655807339306
+dense,REFUND-010-a,Are you responsible for service failures due to natural disasters?,Refund,0.1066288948059082,0.2,1.0,1.0,1.0
+dense,REFUND-011,What is the limitation of liability for refunds?,Refund,0.11316204071044922,0.2,1.0,1.0,1.0
+dense,REFUND-011-a,Will I be compensated for indirect damages?,Refund,0.11191725730895996,0.2,1.0,1.0,1.0
+dense,REFUND-012,Can the refund policy be changed?,Refund,0.11797404289245605,0.2,1.0,1.0,1.0
+dense,REFUND-012-a,How will I be informed about changes to the refund policy?,Refund,0.10901474952697754,0.2,1.0,1.0,1.0
+dense,TERMS-001,What laws govern the terms and conditions of VedicMarriage.ai?,Terms,0.11359310150146484,0.2,1.0,1.0,1.0
+dense,TERMS-002,Who qualifies as a member on VedicMarriage.ai?,Terms,0.10770893096923828,0.0,0.0,0.0,0.0
+dense,TERMS-003,What is considered personal data on the site?,Terms,0.10410904884338379,0.2,1.0,1.0,1.0
+dense,TERMS-004,Are there free features available on VedicMarriage.ai?,Terms,0.12390708923339844,0.0,0.0,0.0,0.0
+dense,TERMS-005,How can a member withdraw consent for personal data collection?,Terms,0.11602592468261719,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-006,What personal data do I need to submit to use VedicMarriage.ai?,Terms,0.1148827075958252,0.2,1.0,1.0,1.0
+dense,TERMS-007,What are the age requirements to register as a member?,Terms,0.11175704002380371,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-008,Can I create a profile for someone else on the site?,Terms,0.11248302459716797,0.0,0.0,0.0,0.0
+dense,TERMS-009,What if I am not a resident of India?,Terms,0.11855411529541016,0.2,1.0,1.0,1.0
+dense,TERMS-010,What happens if I provide false information during registration?,Terms,0.13874387741088867,0.0,0.0,0.0,0.0
+dense,TERMS-011,Can I create multiple profiles on the site?,Terms,0.12343716621398926,0.0,0.0,0.0,0.0
+dense,TERMS-011-a,What happens if I impersonate someone during registration?,Terms,0.2476041316986084,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-012,How do I keep my account information secure?,Terms,0.14078378677368164,0.2,1.0,1.0,1.0
+dense,TERMS-012-a,Will the site ask for my password?,Terms,0.13558077812194824,0.0,0.0,0.0,0.0
+dense,TERMS-013,What is the role of VedicMarriage.ai regarding personal data?,Terms,0.13315892219543457,0.0,0.0,0.0,0.0
+dense,TERMS-013-a,What rights do I have as a user under the Data Protection Act?,Terms,0.10611677169799805,0.2,1.0,0.25,0.43067655807339306
+dense,TERMS-014,Will I be notified when my personal data is collected?,Terms,0.11269903182983398,0.0,0.0,0.0,0.0
+dense,TERMS-014-a,What personal data is collected for matchmaking?,Terms,0.11359596252441406,0.0,0.0,0.0,0.0
+dense,TERMS-015,Can I withdraw my consent for data processing?,Terms,0.11784601211547852,0.2,1.0,1.0,1.0
+dense,TERMS-015-a,How can I file a complaint regarding my personal data?,Terms,0.11760210990905762,0.2,1.0,1.0,1.0
+dense,TERMS-016,What type of consent is required for processing personal data?,Terms,0.11622285842895508,0.2,1.0,1.0,1.0
+dense,TERMS-017,What responsibilities does the Site have regarding personal data?,Terms,0.11863923072814941,0.2,1.0,1.0,1.0
+dense,TERMS-018,How can I contact the Data Protection Officer?,Terms,0.10169601440429688,0.2,1.0,1.0,1.0
+dense,TERMS-019,What rights do Members have regarding grievance redressal?,Terms,0.1085669994354248,0.2,1.0,0.5,0.6309297535714574
+dense,TERMS-020,What control do Members have over their privacy settings?,Terms,0.11186003684997559,0.2,1.0,0.2,0.38685280723454163
+dense,TERMS-021,What should I do to protect my profile information?,Terms,0.2493908405303955,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-022,What should I be cautious about when interacting with prospects?,Terms,0.14538884162902832,0.2,1.0,1.0,1.0
+dense,TERMS-023,Can I make payments to site employees?,Terms,0.13132214546203613,0.0,0.0,0.0,0.0
+dense,TERMS-024,Will I receive promotional messages from the site?,Terms,0.12189507484436035,0.2,1.0,1.0,1.0
+dense,TERMS-025,Are multiple profiles allowed for the same member?,Terms,0.12202596664428711,0.2,1.0,1.0,1.0
+dense,TERMS-026,What identification do I need to submit as a member?,Terms,0.12333321571350098,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-027,Can the site delete my messages or advertisements?,Terms,0.12240409851074219,0.0,0.0,0.0,0.0
+dense,TERMS-028,What can the site do with the content I post?,Terms,0.10847997665405273,0.2,1.0,1.0,1.0
+dense,TERMS-029,Am I responsible for the content I upload?,Terms,0.10911798477172852,0.2,1.0,1.0,1.0
+dense,TERMS-030,Can the site verify the authenticity of my content?,Terms,0.10713887214660645,0.2,1.0,0.2,0.38685280723454163
+dense,TERMS-031,What types of content are prohibited on the site?,Terms,0.10450482368469238,0.2,1.0,0.2,0.38685280723454163
+dense,TERMS-032,What is considered illegal content on the site?,Terms,0.10417604446411133,0.2,1.0,0.5,0.6309297535714575
+dense,TERMS-033,What activities are not allowed regarding member information?,Terms,0.10369586944580078,0.0,0.0,0.0,0.0
+dense,TERMS-034,What are the rules about financial transactions between members?,Terms,0.10468316078186035,0.2,1.0,1.0,1.0
+dense,TERMS-035,What happens if a member violates the terms of service?,Terms,0.11246323585510254,0.2,1.0,0.25,0.4306765580733931
+dense,TERMS-036,What happens to my membership fees if I terminate my membership?,Terms,0.10407662391662598,0.2,1.0,0.3333333333333333,0.5
+dense,TERMS-036-a,Can I use the site for commercial purposes?,Terms,0.10895013809204102,0.0,0.0,0.0,0.0
+dense,TERMS-037,Can businesses become members of the site?,Terms,0.1092681884765625,0.0,0.0,0.0,0.0
+dense,TERMS-037-a,What actions are taken against unauthorized use of the site?,Terms,0.10909271240234375,0.2,1.0,1.0,1.0
+dense,TERMS-038,Who owns the content I upload to the site?,Terms,0.1085808277130127,0.2,1.0,1.0,1.0
+dense,TERMS-038-a,Can I modify the content on the site?,Terms,0.10237002372741699,0.2,1.0,0.5,0.6309297535714574
+dense,TERMS-039,Is the content on the site protected by copyright?,Terms,0.10946774482727051,0.2,1.0,1.0,1.0
+dense,TERMS-039-a,What should I do if I believe my copyright is infringed?,Terms,0.11127090454101562,0.2,1.0,1.0,1.0
+dense,TERMS-040,Does the site guarantee the accuracy of member profiles?,Terms,0.11894106864929199,0.2,1.0,1.0,1.0
+dense,TERMS-040-a,Is the site responsible for member interactions?,Terms,0.15078496932983398,0.2,1.0,1.0,1.0
+dense,TERMS-041,What is the site's responsibility regarding background checks on members?,Terms,0.11759185791015625,0.2,1.0,1.0,1.0
+dense,TERMS-041-a,Can I hold the site responsible for damages from member interactions?,Terms,0.1124427318572998,0.2,1.0,1.0,1.0
+dense,TERMS-042,Who is liable for content posted on the site?,Terms,0.10849928855895996,0.2,1.0,0.3333333333333333,0.5
+dense,TERMS-042-a,What happens if the site modifies or discontinues services?,Terms,0.11130094528198242,0.2,1.0,1.0,1.0
+dense,TERMS-043,What is the site's liability for damages?,Terms,0.10659003257751465,0.2,1.0,1.0,1.0
+dense,TERMS-044,What laws govern the terms of the site?,Terms,0.10576605796813965,0.0,0.0,0.0,0.0
+dense,TERMS-045,What does indemnify mean for members using the site?,Terms,0.1057589054107666,0.2,1.0,1.0,1.0
+dense,TERMS-045-a,What are the consequences of violating site terms?,Terms,0.11002874374389648,0.0,0.0,0.0,0.0
+dense,TERMS-046,What are the exemptions from data processing disclosure?,Terms,0.10798501968383789,0.2,1.0,1.0,1.0
+dense,TERMS-047,Do I need to consent to receive emails from the site?,Terms,0.10311126708984375,0.2,1.0,1.0,1.0
+dense,TERMS-048,Can the site change the terms at any time?,Terms,0.10419726371765137,0.2,1.0,1.0,1.0
+dense,TERMS-049,What does user consent entail when joining the site?,Terms,0.10982704162597656,0.2,1.0,0.5,0.6309297535714574
+hybrid_50_50,FAQ-001,How can I register on Vedic Marriage website?,FAQ,0.12626385688781738,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-002,Can I register on behalf of a relative or a friend?,FAQ,0.13415002822875977,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-003,What is the cost to register on the Vedic Marriage website?,FAQ,0.12350988388061523,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-004,What is profile Verification?,FAQ,0.11024999618530273,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-005,What criteria are used to verify a profile?,FAQ,0.12168025970458984,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-006,What are the advantages of registering on the Vedic Marriage website?,FAQ,0.11297798156738281,0.2,1.0,0.5,0.6309297535714574
+hybrid_50_50,FAQ-007,How long does it take to register and create a Profile on Vedic Marriage website?,FAQ,0.11646294593811035,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-008,The form appears to be quite lengthy. Do I need to complete it in its entirety?,FAQ,0.11544299125671387,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-009,"While registering and creating a profile, can I skip providing information in the mandatory fields?",FAQ,0.11753201484680176,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-010,Can I provide more than one email address when registering on the Vedic Marriage website?,FAQ,0.11495518684387207,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-011,"What should I do if some of the fields like Religion, Caste, Mother Tongue, or Profession are not listed in the registration form?",FAQ,0.10887408256530762,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-012,Why am I getting an error message during registration that says my email is already registered with the Vedic Marriage website and that I need to provide a different email?,FAQ,0.16297507286071777,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-013,How do I Login and Logout from Vedic Marriage website?,FAQ,0.12864112854003906,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-014,Can other Members of Vedic Marriage website come to know when I am logged into Vedic Marriage website?,FAQ,0.12064003944396973,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-015,I forgot my password. What should I do to log in to the Vedic Marriage website matchmaking service?,FAQ,0.11685395240783691,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-016,How can I update my password?,FAQ,0.11741995811462402,0.0,0.0,0.0,0.0
+hybrid_50_50,FAQ-017,How can I update my contact information?,FAQ,0.1051328182220459,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-018,How do I create a new profile on the Vedic Marriage website?,FAQ,0.11054801940917969,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-019,How can I edit my profile on the Vedic Marriage website?,FAQ,0.11263108253479004,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-020,Can I update any or all of my profile information from the Edit Profile page?,FAQ,0.11517524719238281,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-021,Can I change my email address after registering and creating my profile on the Vedic Marriage website?,FAQ,0.12250185012817383,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-022,"Will my profile be searchable online on Google, Yahoo, and other search engines?",FAQ,0.11580920219421387,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-023,Is it safe to include my horoscope with my profile?,FAQ,0.10751676559448242,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-024,"Can I include details about my personality, hobbies, and interests in my profile?",FAQ,0.10788512229919434,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-025,Is it required to add a photo to my profile? How can I upload photos?,FAQ,0.11122274398803711,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-026,I am now happily married to another member of the Vedic Marriage website. Can I share this wonderful news with other members? How should I do that?,FAQ,0.11132693290710449,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-027,How can I get in touch with other members on the Vedic Marriage website?,FAQ,0.11482715606689453,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-028,What additional benefits do I receive as a Premium Member?,FAQ,0.11296677589416504,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-029,"What do Accepting, Declining, or Canceling Interest mean when interacting with a member on the Vedic Marriage website?",FAQ,0.11194491386413574,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-030,Can I decline a member after I have already accepted them?,FAQ,0.11745071411132812,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-031,Can I accept a member after I have declined them?,FAQ,0.10567498207092285,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-032,"If I express interest in a member and they accept, will I be able to cancel the interest later?",FAQ,0.11193013191223145,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-033,Can I block a user who is spamming?,FAQ,0.11387324333190918,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-034,I found a profile I like on the Vedic Marriage website. Can the Customer Support Team assist me in contacting this member?,FAQ,0.11686491966247559,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-035,How can I search for profiles on the Vedic Marriage website and what search options are available?,FAQ,0.10713863372802734,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-036,In what order are the search results displayed?,FAQ,0.10942625999450684,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-037,What is the Matches Percentage and how does it work?,FAQ,0.10671424865722656,0.0,0.0,0.0,0.0
+hybrid_50_50,FAQ-038,Can I shortlist Profiles that I like on Vedic Marriage website?,FAQ,0.11266708374023438,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-039,Can I view a list of members who have visited my profile?,FAQ,0.11858415603637695,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-040,How does the filtering work and what parameters can I use to filter?,FAQ,0.12064313888549805,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-041,Can I apply multiple filters at once?,FAQ,0.12053894996643066,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-042,What are the differences between free and paid membership?,FAQ,0.1820359230041504,0.2,1.0,1.0,1.0
+hybrid_50_50,FAQ-043,What are the different types of premium memberships available?,FAQ,0.142042875289917,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-001,What is the refund and cancellation policy?,Refund,0.13588309288024902,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-002,Can I get a refund for my subscription plan?,Refund,0.14785504341125488,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-003,What should I do if I made a duplicate payment?,Refund,0.2036888599395752,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-004,What happens if a service fails to deliver?,Refund,0.11839413642883301,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-005,How do I request a refund?,Refund,0.12433910369873047,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-006,Will I get a refund if I cancel my subscription?,Refund,0.1160578727722168,0.2,1.0,0.3333333333333333,0.5
+hybrid_50_50,REFUND-007,Can I deactivate my profile without losing my data?,Refund,0.11180281639099121,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-007-a,What happens if I delete my account?,Refund,0.10979986190795898,0.0,0.0,0.0,0.0
+hybrid_50_50,REFUND-008,Are there exceptions to the refund policy?,Refund,0.11211323738098145,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-008-a,What if I live in the EU regarding refunds?,Refund,0.1116640567779541,0.2,1.0,0.25,0.4306765580733931
+hybrid_50_50,REFUND-009,How do I resolve a dispute with VedicMarriage?,Refund,0.10851097106933594,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-009-a,What happens if mediation fails?,Refund,0.12046289443969727,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-010,What is force majeure in the cancellation policy?,Refund,0.1083519458770752,0.2,1.0,0.25,0.43067655807339306
+hybrid_50_50,REFUND-010-a,Are you responsible for service failures due to natural disasters?,Refund,0.10797905921936035,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-011,What is the limitation of liability for refunds?,Refund,0.11070394515991211,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-011-a,Will I be compensated for indirect damages?,Refund,0.11217403411865234,0.2,1.0,1.0,1.0
+hybrid_50_50,REFUND-012,Can the refund policy be changed?,Refund,0.11513686180114746,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,REFUND-012-a,How will I be informed about changes to the refund policy?,Refund,0.10874390602111816,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-001,What laws govern the terms and conditions of VedicMarriage.ai?,Terms,0.10893607139587402,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-002,Who qualifies as a member on VedicMarriage.ai?,Terms,0.10928988456726074,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-003,What is considered personal data on the site?,Terms,0.1115880012512207,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-004,Are there free features available on VedicMarriage.ai?,Terms,0.10960507392883301,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-005,How can a member withdraw consent for personal data collection?,Terms,0.10718679428100586,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-006,What personal data do I need to submit to use VedicMarriage.ai?,Terms,0.11127996444702148,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-007,What are the age requirements to register as a member?,Terms,0.10767507553100586,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-008,Can I create a profile for someone else on the site?,Terms,0.11144685745239258,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-009,What if I am not a resident of India?,Terms,0.1156167984008789,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-010,What happens if I provide false information during registration?,Terms,0.1086878776550293,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-011,Can I create multiple profiles on the site?,Terms,0.10923886299133301,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-011-a,What happens if I impersonate someone during registration?,Terms,0.1081850528717041,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-012,How do I keep my account information secure?,Terms,0.10470008850097656,0.2,1.0,0.25,0.4306765580733931
+hybrid_50_50,TERMS-012-a,Will the site ask for my password?,Terms,0.10364270210266113,0.2,1.0,0.3333333333333333,0.5
+hybrid_50_50,TERMS-013,What is the role of VedicMarriage.ai regarding personal data?,Terms,0.10481405258178711,0.2,1.0,0.2,0.38685280723454163
+hybrid_50_50,TERMS-013-a,What rights do I have as a user under the Data Protection Act?,Terms,0.10969400405883789,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-014,Will I be notified when my personal data is collected?,Terms,0.1081538200378418,0.2,1.0,0.2,0.38685280723454163
+hybrid_50_50,TERMS-014-a,What personal data is collected for matchmaking?,Terms,0.10962390899658203,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-015,Can I withdraw my consent for data processing?,Terms,0.10899186134338379,0.2,1.0,0.25,0.43067655807339306
+hybrid_50_50,TERMS-015-a,How can I file a complaint regarding my personal data?,Terms,0.11048293113708496,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-016,What type of consent is required for processing personal data?,Terms,0.11029577255249023,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-017,What responsibilities does the Site have regarding personal data?,Terms,0.10948705673217773,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-018,How can I contact the Data Protection Officer?,Terms,0.11247110366821289,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-019,What rights do Members have regarding grievance redressal?,Terms,0.10962486267089844,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-020,What control do Members have over their privacy settings?,Terms,0.10709810256958008,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-021,What should I do to protect my profile information?,Terms,0.10521483421325684,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-022,What should I be cautious about when interacting with prospects?,Terms,0.10573220252990723,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-023,Can I make payments to site employees?,Terms,0.10515594482421875,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-024,Will I receive promotional messages from the site?,Terms,0.11560392379760742,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-025,Are multiple profiles allowed for the same member?,Terms,0.1157078742980957,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-026,What identification do I need to submit as a member?,Terms,0.11712288856506348,0.2,1.0,0.3333333333333333,0.5
+hybrid_50_50,TERMS-027,Can the site delete my messages or advertisements?,Terms,0.10870695114135742,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-028,What can the site do with the content I post?,Terms,0.2864401340484619,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-029,Am I responsible for the content I upload?,Terms,0.1451880931854248,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-030,Can the site verify the authenticity of my content?,Terms,0.13569116592407227,0.2,1.0,0.25,0.43067655807339306
+hybrid_50_50,TERMS-031,What types of content are prohibited on the site?,Terms,0.11480593681335449,0.2,1.0,0.25,0.43067655807339306
+hybrid_50_50,TERMS-032,What is considered illegal content on the site?,Terms,0.11879968643188477,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-033,What activities are not allowed regarding member information?,Terms,0.109832763671875,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-034,What are the rules about financial transactions between members?,Terms,0.1175541877746582,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-035,What happens if a member violates the terms of service?,Terms,0.11482095718383789,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-036,What happens to my membership fees if I terminate my membership?,Terms,0.1076962947845459,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-036-a,Can I use the site for commercial purposes?,Terms,0.10899710655212402,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-037,Can businesses become members of the site?,Terms,0.11284685134887695,0.2,1.0,0.3333333333333333,0.5
+hybrid_50_50,TERMS-037-a,What actions are taken against unauthorized use of the site?,Terms,0.10659599304199219,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-038,Who owns the content I upload to the site?,Terms,0.10900998115539551,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-038-a,Can I modify the content on the site?,Terms,0.13709497451782227,0.2,1.0,0.5,0.6309297535714574
+hybrid_50_50,TERMS-039,Is the content on the site protected by copyright?,Terms,0.1298050880432129,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-039-a,What should I do if I believe my copyright is infringed?,Terms,0.10973477363586426,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-040,Does the site guarantee the accuracy of member profiles?,Terms,0.10997295379638672,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-040-a,Is the site responsible for member interactions?,Terms,0.11780500411987305,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-041,What is the site's responsibility regarding background checks on members?,Terms,0.12231016159057617,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-041-a,Can I hold the site responsible for damages from member interactions?,Terms,0.11441802978515625,0.2,1.0,0.3333333333333333,0.5
+hybrid_50_50,TERMS-042,Who is liable for content posted on the site?,Terms,0.11333513259887695,0.2,1.0,0.5,0.6309297535714575
+hybrid_50_50,TERMS-042-a,What happens if the site modifies or discontinues services?,Terms,0.11548209190368652,0.2,1.0,0.5,0.6309297535714574
+hybrid_50_50,TERMS-043,What is the site's liability for damages?,Terms,0.1191859245300293,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-044,What laws govern the terms of the site?,Terms,0.11266493797302246,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-045,What does indemnify mean for members using the site?,Terms,0.10678601264953613,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-045-a,What are the consequences of violating site terms?,Terms,0.10730314254760742,0.0,0.0,0.0,0.0
+hybrid_50_50,TERMS-046,What are the exemptions from data processing disclosure?,Terms,0.11882495880126953,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-047,Do I need to consent to receive emails from the site?,Terms,0.10644292831420898,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-048,Can the site change the terms at any time?,Terms,0.11404895782470703,0.2,1.0,1.0,1.0
+hybrid_50_50,TERMS-049,What does user consent entail when joining the site?,Terms,0.11072993278503418,0.2,1.0,1.0,1.0

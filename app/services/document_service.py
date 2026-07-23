@@ -80,6 +80,29 @@ TITLE_SECTION_HEADER = re.compile(
 LEGAL_DOC_KEYWORDS = ("terms", "condition", "policy", "refund", "cancellation", "privacy", "legal")
 
 
+def _slugify(text: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    return slug[:80] or "section"
+
+
+def _ensure_legal_header(content: str, *headers: str) -> str:
+    """Guarantee section/clause titles appear at the start of chunk text."""
+    text = content.strip()
+    prefixes: List[str] = []
+    lower = text.lower()
+    for header in headers:
+        header = (header or "").strip()
+        if not header or header.lower() == "introduction":
+            continue
+        if header.lower() in lower[: max(120, len(header) + 40)]:
+            continue
+        if header not in prefixes:
+            prefixes.append(header)
+    if not prefixes:
+        return text
+    return "\n".join(prefixes) + "\n\n" + text
+
+
 class DocumentService:
     def __init__(self):
         self.embedding_service = EmbeddingService()
@@ -197,10 +220,17 @@ class DocumentService:
         if matches[0].start() > 0:
             preamble = text[: matches[0].start()].strip()
             if preamble:
+                content = _ensure_legal_header(preamble, "Introduction")
                 chunks.append(
                     Document(
-                        page_content=preamble,
-                        metadata={**doc.metadata, "section": "Introduction", "chunk_type": "legal"},
+                        page_content=content,
+                        metadata={
+                            **doc.metadata,
+                            "section": "Introduction",
+                            "chunk_type": "legal",
+                            "legal_id": "introduction",
+                            "legal_heading": "Introduction",
+                        },
                     )
                 )
 
@@ -221,20 +251,26 @@ class DocumentService:
                 continue
 
             if is_clause or is_article:
-                content = f"{current_section}\n\n{block}" if current_section != "Introduction" else block
+                content = _ensure_legal_header(block, current_section, heading)
+                section_name = current_section if is_clause else heading
                 chunk_type = "article" if is_article else "clause"
+                legal_id = f"{_slugify(current_section)}-{_slugify(heading)}"
             else:
-                content = block
+                content = _ensure_legal_header(block, heading)
                 current_section = heading
+                section_name = heading
                 chunk_type = "section"
+                legal_id = _slugify(heading)
 
             chunks.append(
                 Document(
                     page_content=content.strip(),
                     metadata={
                         **doc.metadata,
-                        "section": current_section if is_clause else heading,
+                        "section": section_name,
                         "chunk_type": chunk_type,
+                        "legal_id": legal_id,
+                        "legal_heading": heading,
                     },
                 )
             )
@@ -250,18 +286,16 @@ class DocumentService:
             if len(chunk.page_content) <= limit:
                 result.append(chunk)
                 continue
+            section = str(chunk.metadata.get("section", ""))
+            heading = str(chunk.metadata.get("legal_heading", ""))
             for i, part in enumerate(
                 self.text_splitter.split_text(chunk.page_content)
             ):
-                result.append(
-                    Document(
-                        page_content=part,
-                        metadata={
-                            **chunk.metadata,
-                            "section_part": i + 1,
-                        },
-                    )
-                )
+                content = _ensure_legal_header(part, section, heading)
+                meta = {**chunk.metadata, "section_part": i + 1}
+                if chunk.metadata.get("legal_id"):
+                    meta["legal_id"] = f"{chunk.metadata['legal_id']}-p{i + 1}"
+                result.append(Document(page_content=content, metadata=meta))
         return result
 
     def _split_legal_by_title_headers(self, doc: Document) -> List[Document]:
@@ -293,10 +327,17 @@ class DocumentService:
         if header_indices[0][0] > 0:
             preamble = "\n".join(lines[: header_indices[0][0]]).strip()
             if len(preamble) >= 80:
+                content = _ensure_legal_header(preamble, "Introduction")
                 chunks.append(
                     Document(
-                        page_content=preamble,
-                        metadata={**doc.metadata, "section": "Introduction", "chunk_type": "legal"},
+                        page_content=content,
+                        metadata={
+                            **doc.metadata,
+                            "section": "Introduction",
+                            "chunk_type": "legal",
+                            "legal_id": "introduction",
+                            "legal_heading": "Introduction",
+                        },
                     )
                 )
 
@@ -313,9 +354,11 @@ class DocumentService:
                 pending_header = title
                 continue
             if pending_header:
-                block = f"{pending_header}\n\n{block}"
+                block = _ensure_legal_header(block, pending_header, title)
                 title = pending_header
                 pending_header = None
+            else:
+                block = _ensure_legal_header(block, title)
             chunks.append(
                 Document(
                     page_content=block,
@@ -323,6 +366,8 @@ class DocumentService:
                         **doc.metadata,
                         "section": title,
                         "chunk_type": "section",
+                        "legal_id": _slugify(title),
+                        "legal_heading": title,
                     },
                 )
             )

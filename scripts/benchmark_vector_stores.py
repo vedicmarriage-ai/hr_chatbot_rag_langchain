@@ -76,12 +76,14 @@ class VectorStoreBenchmark:
             ]
             section_regex = str(row.get("gold_section_regex", "")).strip()
             gold_faq_id = str(row.get("gold_faq_id", "")).strip()
+            gold_legal_id = str(row.get("gold_legal_id", "")).strip()
 
             qrel = {
                 "gold_source": gold_source.lower(),
                 "gold_keywords": keywords,
                 "gold_section_regex": section_regex,
                 "gold_faq_id": gold_faq_id,
+                "gold_legal_id": gold_legal_id,
                 "relevance_grade": grade,
             }
             self.qrels_by_query.setdefault(query_id, []).append(qrel)
@@ -161,12 +163,17 @@ class VectorStoreBenchmark:
             return False
 
         gold_faq_id = str(qrel.get("gold_faq_id", "")).strip()
+        gold_legal_id = str(qrel.get("gold_legal_id", "")).strip()
         if gold_faq_id:
             if doc.metadata.get("faq_id") != gold_faq_id:
                 return False
+        elif gold_legal_id:
+            if doc.metadata.get("legal_id") != gold_legal_id:
+                return False
         elif qrel["gold_section_regex"]:
             section = str(doc.metadata.get("section", ""))
-            target = f"{section}\n{doc.page_content[:800]}"
+            heading = str(doc.metadata.get("legal_heading", ""))
+            target = f"{section}\n{heading}\n{doc.page_content[:800]}"
             try:
                 if not re.search(qrel["gold_section_regex"], target, re.IGNORECASE):
                     return False
@@ -176,8 +183,8 @@ class VectorStoreBenchmark:
         if qrel["gold_keywords"]:
             text = doc.page_content.lower()
             keywords = qrel["gold_keywords"]
-            if gold_faq_id:
-                # faq_id already pins the chunk; require most keywords, not all
+            if gold_faq_id or gold_legal_id:
+                # id already pins the chunk; require most keywords, not all
                 hits = sum(1 for k in keywords if k in text)
                 if hits < min(2, len(keywords)):
                     return False

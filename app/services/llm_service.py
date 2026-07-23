@@ -11,9 +11,10 @@ class LLMService:
             
         # Memory-efficient settings for 8GB Mac; larger models need more RAM
         small_models = ("tinyllama", "qwen", "llama3.2", "gemma2", "gemma")
+        temperature = float(settings.LLM_TEMPERATURE)
         if any(tag in model_name.lower() for tag in small_models):
             llm_params = {
-                "temperature": 0.1,
+                "temperature": temperature,
                 "num_predict": 512,
                 "top_k": 40,
                 "top_p": 0.9,
@@ -22,7 +23,7 @@ class LLMService:
             }
         else:
             llm_params = {
-                "temperature": 0.1,
+                "temperature": temperature,
                 "num_predict": 1024,
                 "top_k": 40,
                 "top_p": 0.9,
@@ -42,4 +43,4 @@ class LLMService:
     @staticmethod
     def get_available_models():
         """Return list of available Ollama models"""
-        return settings.AVAILABLE_MODELS 
+        return settings.AVAILABLE_MODELS

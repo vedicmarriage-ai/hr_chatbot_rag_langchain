@@ -9,6 +9,15 @@ Version is defined in `app/core/version.py` and exposed via the API root and `/h
 
 ## [Unreleased]
 
+### Added
+- Hybrid BM25 + embedding retrieval with reciprocal rank fusion
+- Policy-query aware fetch depth and legal rerank bonuses (no FAQ Q&A bonus on policy queries)
+- Stronger legal chunk headers/`legal_id` metadata and `strengthen_legal_qrels.py`
+- Hybrid weight tuning defaults: dense 0.3 / BM25 0.7 (always-on); eval script `--sweep`
+- Source citations with chunk quotes (`faq_id` / `legal_id` + excerpt), not filenames only
+- Generic numeric grounding check + harder refusal prompt; LLM temperature default 0
+- Retrieval-improvement interview notebook (`notebook/retrieval_improvement.ipynb`)
+
 ## [1.1.0] - 2026-07-09
 
 ### Added

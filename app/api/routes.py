@@ -7,6 +7,7 @@ from app.core.rag_stacks import get_default_stack
 from app.core.version import __version__
 from pydantic import BaseModel
 from typing import Optional, List
+import re
 
 settings = get_settings()
 default_stack = get_default_stack()
@@ -50,15 +51,20 @@ async def ask_question(request: QuestionRequest):
             request.conversation_id
         )
         
-        # Extract sources from the response
+        # Extract sources from the response (filename + chunk quote lines)
         sources = []
-        if "Sources:" in response:
-            # Split response to separate answer from sources
-            parts = response.split("Sources:")
-            answer = parts[0].strip()
-            sources_text = parts[1].strip()
-            # Extract source filenames
-            sources = [line.strip("- ").strip() for line in sources_text.split("\n") if line.strip().startswith("-")]
+        if "Sources" in response and ":" in response.split("Sources", 1)[-1][:80]:
+            parts = re.split(r"\nSources[^\n]*:\n", response, maxsplit=1)
+            if len(parts) == 2:
+                answer = parts[0].strip()
+                sources_text = parts[1].strip()
+                sources = [
+                    line.strip("- ").strip()
+                    for line in sources_text.split("\n")
+                    if line.strip().startswith("-")
+                ]
+            else:
+                answer = response
         else:
             answer = response
         

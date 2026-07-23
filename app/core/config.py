@@ -118,15 +118,30 @@ class Settings(BaseSettings):
     TOP_K_RESULTS: int = 5
     RERANK_ENABLED: bool = True
     RERANK_CANDIDATES: int = 20
+    RERANK_CANDIDATES_POLICY: int = 35
     RERANK_MODEL: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     RERANK_MAX_CHUNK_CHARS: int = 800
     RERANK_LONG_CHUNK_CHARS: int = 350
     RERANK_QA_BONUS: float = 1.5
+    RERANK_LEGAL_BONUS: float = 0.35
     RERANK_MAX_CHUNKS_PER_SOURCE: int = 2
+    RERANK_MAX_CHUNKS_PER_SOURCE_POLICY: int = 3
+    HYBRID_RETRIEVAL_ENABLED: bool = True
+    # Best on current Terms/ALL sweep: always-on hybrid, denser BM25 weight
+    HYBRID_POLICY_ONLY: bool = False
+    HYBRID_DENSE_K: int = 25
+    HYBRID_SPARSE_K: int = 25
+    HYBRID_DENSE_WEIGHT: float = 0.3
+    HYBRID_SPARSE_WEIGHT: float = 0.7
     SIMILARITY_THRESHOLD: float = 0.7
-    
-    
-    
+
+    # Generation / anti-hallucination
+    LLM_TEMPERATURE: float = 0.0
+    GROUNDING_NUMERIC_CHECK: bool = True
+    GROUNDING_REFUSAL_MESSAGE: str = (
+        "I don't have that information in our HR documents."
+    )
+
     # API settings
     API_V1_STR: str = "/api/v1"
     

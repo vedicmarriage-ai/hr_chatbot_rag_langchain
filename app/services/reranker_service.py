@@ -8,14 +8,15 @@ from langchain_core.documents import Document
 from sentence_transformers import CrossEncoder
 
 from app.core.config import get_settings
+from app.services.query_intent import (
+    REGISTRATION_QUERY,
+    is_policy_query,
+    is_registration_query,
+)
 
 settings = get_settings()
 
 _QA_PATTERN = re.compile(r"Q\d+\.", re.IGNORECASE)
-_REGISTRATION_QUERY = re.compile(
-    r"\b(register|registration|sign\s*up|signup|join|create\s+(?:an?\s+)?account|new\s+account)\b",
-    re.IGNORECASE,
-)
 _REGISTRATION_QUESTION = re.compile(
     r"\b(register|sign[- ]?up|sign-up|submit)\b",
     re.IGNORECASE,
@@ -25,6 +26,7 @@ _MEMBER_CONTACT_QUESTION = re.compile(
     re.IGNORECASE,
 )
 _LOGIN_QUESTION = re.compile(r"\b(login|logout|password|forgot)\b", re.IGNORECASE)
+_LEGAL_CHUNK_TYPES = {"legal", "clause", "article", "section"}
 
 
 @lru_cache
@@ -37,6 +39,14 @@ def _is_qa_chunk(doc: Document) -> bool:
     text = doc.page_content
     head = text[:500]
     return bool(_QA_PATTERN.search(head)) and "Ans." in head
+
+
+def _is_legal_chunk(doc: Document) -> bool:
+    chunk_type = str(doc.metadata.get("chunk_type", "")).lower()
+    if chunk_type in _LEGAL_CHUNK_TYPES:
+        return True
+    source = doc.metadata.get("source", "").lower()
+    return any(token in source for token in ("terms", "refund", "policy", "condition"))
 
 
 def _faq_intent_adjustment(query: str, doc: Document) -> float:
@@ -53,7 +63,7 @@ def _faq_intent_adjustment(query: str, doc: Document) -> float:
     q = query.lower()
     adj = _overlap_ratio(query, faq_question) * 0.2
 
-    if not _REGISTRATION_QUERY.search(q):
+    if not REGISTRATION_QUERY.search(q):
         return adj
 
     if _REGISTRATION_QUESTION.search(question):
@@ -66,7 +76,7 @@ def _faq_intent_adjustment(query: str, doc: Document) -> float:
         adj -= 0.15
 
     source = doc.metadata.get("source", "").lower()
-    if _REGISTRATION_QUERY.search(q):
+    if is_registration_query(q):
         if doc.metadata.get("chunk_type") == "faq":
             adj += 0.15
         elif any(token in source for token in ("terms", "refund", "policy")):
@@ -75,9 +85,30 @@ def _faq_intent_adjustment(query: str, doc: Document) -> float:
     return adj
 
 
+def _policy_intent_adjustment(query: str, doc: Document) -> float:
+    """Soft generic boost for legal chunks on policy-like questions."""
+    if not is_policy_query(query):
+        return 0.0
+    if _is_legal_chunk(doc):
+        return settings.RERANK_LEGAL_BONUS
+    if _is_qa_chunk(doc):
+        return -0.25
+    return 0.0
+
+
 def _prioritize_for_query(query: str, docs: List[Document]) -> List[Document]:
-    """Put the most intent-aligned FAQ chunk first for small-LLM context windows."""
-    if not _REGISTRATION_QUERY.search(query):
+    """Order context: policy → legal first; registration → registration FAQ first."""
+    if is_policy_query(query):
+        return sorted(
+            docs,
+            key=lambda doc: (
+                0 if _is_legal_chunk(doc) else 1,
+                1 if _is_qa_chunk(doc) else 0,
+                len(doc.page_content),
+            ),
+        )
+
+    if not is_registration_query(query):
         return sorted(docs, key=lambda doc: len(doc.page_content))
 
     def sort_key(doc: Document) -> tuple:
@@ -99,9 +130,13 @@ def _prioritize_for_query(query: str, docs: List[Document]) -> List[Document]:
 
 
 def _apply_qa_bonus(
+    query: str,
     ranked: List[Tuple[float, Document]],
 ) -> List[Tuple[float, Document]]:
-    """Slight score boost for structured Q&A chunks — not a hard filter."""
+    """Boost FAQ Q&A chunks except on policy queries (avoid FAQ drowning legal)."""
+    if is_policy_query(query):
+        return ranked
+
     bonus = settings.RERANK_QA_BONUS
     return sorted(
         (
@@ -178,7 +213,8 @@ def rerank_documents(
             (
                 float(score)
                 - min(len(doc.page_content) / max_chars, 0.5)
-                + _faq_intent_adjustment(query, doc),
+                + _faq_intent_adjustment(query, doc)
+                + _policy_intent_adjustment(query, doc),
                 doc,
             )
             for score, doc in zip(raw_scores, documents)
@@ -186,10 +222,16 @@ def rerank_documents(
         key=lambda item: item[0],
         reverse=True,
     )
-    ranked = _apply_qa_bonus(ranked)
+    ranked = _apply_qa_bonus(query, ranked)
+    # Policy answers often need 2+ clauses from the same doc
+    max_per_source = (
+        settings.RERANK_MAX_CHUNKS_PER_SOURCE_POLICY
+        if is_policy_query(query)
+        else settings.RERANK_MAX_CHUNKS_PER_SOURCE
+    )
     selected = _select_diverse_top_k(
         ranked,
         top_n,
-        max_per_source=settings.RERANK_MAX_CHUNKS_PER_SOURCE,
+        max_per_source=max_per_source,
     )
     return _prioritize_for_query(query, selected)
