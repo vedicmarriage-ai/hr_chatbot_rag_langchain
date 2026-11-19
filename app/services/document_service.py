@@ -1,5 +1,5 @@
 from langchain_community.document_loaders import DirectoryLoader, TextLoader, Docx2txtLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_classic.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from app.services.embedding_service import EmbeddingService
 from app.core.config import get_settings
@@ -8,7 +8,7 @@ import re
 import shutil
 from typing import List, Optional
 from pathlib import Path
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 settings = get_settings()
 

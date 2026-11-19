@@ -7,16 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Version is defined in `app/core/version.py` and exposed via the API root and `/health` endpoints.
 
-## [Unreleased]
+## [1.2.0] - 2026-11-19
 
 ### Added
-- Hybrid BM25 + embedding retrieval with reciprocal rank fusion
-- Policy-query aware fetch depth and legal rerank bonuses (no FAQ Q&A bonus on policy queries)
-- Stronger legal chunk headers/`legal_id` metadata and `strengthen_legal_qrels.py`
-- Hybrid weight tuning defaults: dense 0.3 / BM25 0.7 (always-on); eval script `--sweep`
-- Source citations with chunk quotes (`faq_id` / `legal_id` + excerpt), not filenames only
-- Generic numeric grounding check + harder refusal prompt; LLM temperature default 0
-- Retrieval-improvement interview notebook (`notebook/retrieval_improvement.ipynb`)
+
+- Sarvam generation through the VedicMarriage AI service (`app/services/sarvam_gateway.py`). Retrieval stays local. The Sarvam key is not stored in this app.
+- Fallback to `qwen2.5:1.5b` on timeout, connection error, missing `AI_CHAT_BASE_URL`, or HTTP 503 (`LOCAL_LLM_FALLBACK`).
+- Empty retrieval still returns the refusal and calls neither model.
+- `/api/ask` metadata: `provider`, `latency_ms`, and token counts. Ollama fallback leaves tokens empty.
+- Docs: [`docs/SARVAM_GENERATION.md`](docs/SARVAM_GENERATION.md). Tests: `tests/test_answer_generation.py`.
+- Hybrid BM25 + embedding retrieval with reciprocal rank fusion.
+- Policy-query aware fetch depth and legal rerank bonuses (no FAQ Q&A bonus on policy queries).
+- Stronger legal chunk headers/`legal_id` metadata and `strengthen_legal_qrels.py`.
+- Hybrid weight tuning defaults: dense 0.3 / BM25 0.7 (always-on); eval script `--sweep`.
+- Source citations with chunk quotes (`faq_id` / `legal_id` + excerpt), not filenames only.
+- Generic numeric grounding check and a harder refusal prompt. LLM temperature default is 0.
+- Retrieval-improvement interview notebook (`notebook/retrieval_improvement.ipynb`).
+
+### Changed
+
+- `RAGService.process_message` retrieves first, then `generate_from_docs`, instead of `ConversationalRetrievalChain` for the answer.
+- Chain and memory imports use `langchain-classic` (`requirements.txt`).
 
 ## [1.1.0] - 2026-07-09
 
@@ -55,5 +66,6 @@ Version is defined in `app/core/version.py` and exposed via the API root and `/h
 - Basic vector store creation and chat API.
 
 [Unreleased]: https://github.com/vedicmarriage-ai/hr_chatbot_rag_langchain/compare/v1.1.0...HEAD
+[1.2.0]: https://github.com/vedicmarriage-ai/hr_chatbot_rag_langchain/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/vedicmarriage-ai/hr_chatbot_rag_langchain/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/vedicmarriage-ai/hr_chatbot_rag_langchain/releases/tag/v1.0.0
