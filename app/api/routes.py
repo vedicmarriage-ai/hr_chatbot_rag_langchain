@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
+from starlette.concurrency import run_in_threadpool
 from app.models.chat import ChatRequest, ChatResponse
 from app.services.rag_service import RAGService
 from app.services.embedding_service import EmbeddingType
+from app.services.sarvam_gateway import SarvamGatewayError
 from app.core.config import get_settings
 from app.core.rag_stacks import get_default_stack
 from app.core.version import __version__
@@ -22,11 +24,14 @@ rag_service = RAGService(
 @router.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
-        response, session_id = rag_service.process_message(
+        response, session_id = await run_in_threadpool(
+            rag_service.process_message,
             request.message,
-            request.session_id
+            request.session_id,
         )
         return ChatResponse(response=response, session_id=session_id)
+    except SarvamGatewayError as exc:
+        raise HTTPException(status_code=502, detail="Support bot is unavailable") from exc
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -46,9 +51,10 @@ class QuestionResponse(BaseModel):
 async def ask_question(request: QuestionRequest):
     try:
         # Process the question through RAG service
-        response, session_id = rag_service.process_message(
+        response, session_id = await run_in_threadpool(
+            rag_service.process_message,
             request.question,
-            request.conversation_id
+            request.conversation_id,
         )
         
         # Extract sources from the response (filename + chunk quote lines)
@@ -76,11 +82,15 @@ async def ask_question(request: QuestionRequest):
                 "session_id": session_id,
                 "provider": getattr(generation, "provider", None),
                 "latency_ms": getattr(generation, "latency_ms", None),
+                "retrieve_ms": getattr(rag_service, "last_retrieve_ms", None),
+                "generate_ms": getattr(rag_service, "last_generate_ms", None),
                 "prompt_tokens": getattr(generation, "prompt_tokens", None),
                 "completion_tokens": getattr(generation, "completion_tokens", None),
                 "total_tokens": getattr(generation, "total_tokens", None),
             }
         )
+    except SarvamGatewayError as exc:
+        raise HTTPException(status_code=502, detail="Support bot is unavailable") from exc
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -34,6 +34,8 @@ def complete(prompt: str) -> GatewayAnswer:
     if not base:
         raise SarvamGatewayError("AI_CHAT_BASE_URL is not set")
 
+    # Do not send max_tokens yet: 256–1024 on the full RAG prompt returns empty
+    # Sarvam content (reasoning budget). Short probes work; keep silo support.
     payload = json.dumps({"messages": [{"role": "user", "content": prompt}]}).encode()
     request = urllib.request.Request(
         f"{base}/v1/chat/completions",

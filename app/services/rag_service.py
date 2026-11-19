@@ -11,19 +11,21 @@ from app.services.llm_service import LLMService
 from app.services.embedding_service import EmbeddingService, EmbeddingType
 from app.services.document_service import DocumentService
 from app.services.answer_generation import GenerationRecord, generate_from_docs
+from app.services.chat_history import SessionHistory
 from app.services.greetings import WELCOME_MESSAGE, is_greeting
-from app.services.reranker_service import rerank_documents
+from app.services.reranker_service import get_cross_encoder, rerank_documents
 from app.services.hybrid_retriever import BM25Index, hybrid_search
 from app.services.query_intent import should_use_hybrid_retrieval
 from app.services.grounding import enforce_numeric_grounding
 from typing import Any, List, Optional
 from pathlib import Path
+import logging
 import re
+import time
 import uuid
 import os
 
-from langchain_core.messages import AIMessage
-
+logger = logging.getLogger(__name__)
 settings = get_settings()
 
 # Max chars of chunk text shown in the Sources footer
@@ -176,7 +178,8 @@ class RAGService:
         
         self.qa_template = """You are VedicMarriage Bot, the support assistant for VedicMarriage.com.
 Greet members as VedicMarriage Bot. You help with registration, membership, refunds, and account questions.
-Answer ONLY using the Context below. Be concise and direct.
+Answer ONLY using the Context below. Be concise: at most four short sentences.
+Write the user-visible answer only (no scratchpad).
 
 Rules:
 - Use ONLY facts that appear in the Context. Do not use outside knowledge.
@@ -225,20 +228,29 @@ Answer:"""
             return_source_documents=True,
             verbose=True
         )
+        self.last_retrieve_ms: float | None = None
+        self.last_generate_ms: float | None = None
+        self.session_history = SessionHistory(max_turns=settings.CHAT_HISTORY_MAX_TURNS)
+        self._warmup()
+
+    def _warmup(self) -> None:
+        """Load MiniLM and pin the Ollama embedding model so the first ask is warm."""
+        try:
+            get_cross_encoder()
+        except Exception as exc:
+            logger.warning("rerank warmup skipped: %s", exc)
+        try:
+            self.embedding_service.get_embedding("warmup")
+        except Exception as exc:
+            logger.warning("embedding warmup skipped: %s", exc)
     
     def _local_fallback(self, prompt: str) -> str:
         if getattr(self, "_fallback_llm", None) is None:
             self._fallback_llm = LLMService(model_name=settings.LOCAL_FALLBACK_MODEL)
         return self._fallback_llm.generate_response(prompt)
 
-    def _chat_history_text(self) -> str:
-        messages = getattr(getattr(self.memory, "chat_memory", None), "messages", []) or []
-        lines = []
-        for message in messages[-4:]:
-            content = getattr(message, "content", "")
-            if content:
-                lines.append(str(content)[:500])
-        return "\n".join(lines)
+    def _chat_history_text(self, session_id: str) -> str:
+        return self.session_history.text(session_id, settings.CHAT_HISTORY_MAX_CHARS)
 
     def process_message(self, message: str, session_id: str = None) -> tuple[str, str]:
         if not session_id:
@@ -246,26 +258,35 @@ Answer:"""
 
         if is_greeting(message):
             self.last_generation = GenerationRecord("canned", 0, None, None, None, WELCOME_MESSAGE)
-            self.memory.chat_memory.add_user_message(message)
-            self.memory.chat_memory.add_ai_message(WELCOME_MESSAGE)
+            self.last_retrieve_ms = 0
+            self.last_generate_ms = 0
             return WELCOME_MESSAGE, session_id
 
+        retrieve_started = time.perf_counter()
         source_docs = self.retriever.invoke(message)
+        self.last_retrieve_ms = round((time.perf_counter() - retrieve_started) * 1000, 2)
+        generate_started = time.perf_counter()
         generated = generate_from_docs(
             question=message,
             docs=source_docs,
             prompt_template=self.QA_PROMPT,
-            chat_history=self._chat_history_text(),
+            chat_history=self._chat_history_text(session_id),
             refusal=settings.GROUNDING_REFUSAL_MESSAGE,
             local_generate=self._local_fallback,
             fallback_enabled=settings.LOCAL_LLM_FALLBACK,
+        )
+        self.last_generate_ms = round((time.perf_counter() - generate_started) * 1000, 2)
+        logger.info(
+            "hr_ask retrieve_ms=%s generate_ms=%s provider=%s",
+            self.last_retrieve_ms,
+            self.last_generate_ms,
+            generated.provider,
         )
         self.last_generation = generated
         answer = generated.text
 
         if generated.provider != "none":
-            self.memory.chat_memory.add_user_message(message)
-            self.memory.chat_memory.add_ai_message(answer)
+            self.session_history.add(session_id, message, answer)
 
         if settings.GROUNDING_NUMERIC_CHECK:
             answer, bad_claims = enforce_numeric_grounding(
@@ -277,21 +298,12 @@ Answer:"""
                 print(
                     f"⚠️ Ungrounded numeric claim(s) blocked: {bad_claims}"
                 )
-                self._replace_last_ai_memory(answer)
+                self.session_history.replace_last_answer(session_id, answer)
 
         answer = answer + format_source_citations(source_docs)
 
         return answer, session_id
 
-    def _replace_last_ai_memory(self, content: str) -> None:
-        """Keep conversation memory aligned after a post-generation refusal."""
-        try:
-            msgs = self.memory.chat_memory.messages
-            if msgs and isinstance(msgs[-1], AIMessage):
-                msgs[-1].content = content
-        except Exception:
-            pass
-    
     def update_knowledge_base(self, documents_directory: str):
         """Update the knowledge base with new documents"""
         self.vectorstore = self.document_service.process_documents(documents_directory)

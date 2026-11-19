@@ -91,3 +91,83 @@ def test_empty_retrieval_calls_neither_model(monkeypatch):
     )
     assert record.text == REFUSAL
     assert record.provider == "none"
+
+
+def test_empty_visible_content_retries_compact_prompt(monkeypatch):
+    calls = []
+
+    def complete(prompt):
+        calls.append(prompt)
+        if len(calls) == 1:
+            return GatewayAnswer("", 10, 100, 0, 100)
+        return GatewayAnswer("Registration is FREE.", 20, 80, 12, 92)
+
+    monkeypatch.setattr(answer_generation, "complete", complete)
+    record = answer_generation.generate_from_docs(
+        question="Is registration free?",
+        docs=[DOC],
+        prompt_template=PROMPT,
+        chat_history="User: hi\nAssistant: Hello",
+        refusal=REFUSAL,
+        local_generate=lambda _p: "no",
+        fallback_enabled=False,
+    )
+    assert record.text == "Registration is FREE."
+    assert len(calls) == 2
+    assert "Chat History" not in calls[1]
+    assert "at most three short sentences" in calls[1]
+
+
+def test_gateway_error_without_fallback_raises(monkeypatch):
+    def fail(_prompt):
+        raise SarvamGatewayError("status 503")
+
+    monkeypatch.setattr(answer_generation, "complete", fail)
+
+    def local(_prompt):
+        raise AssertionError("local called")
+
+    try:
+        answer_generation.generate_from_docs(
+            question="How much leave?",
+            docs=[DOC],
+            prompt_template=PROMPT,
+            chat_history="",
+            refusal=REFUSAL,
+            local_generate=local,
+            fallback_enabled=False,
+        )
+    except SarvamGatewayError:
+        return
+    raise AssertionError("expected SarvamGatewayError")
+
+
+def test_prompt_caps_chunks_and_chars(monkeypatch):
+    captured = {}
+
+    def capture(prompt):
+        captured["prompt"] = prompt
+        return GatewayAnswer("ok", 1, 1, 1, 2)
+
+    monkeypatch.setattr(answer_generation, "complete", capture)
+    docs = [
+        SimpleNamespace(page_content="A" * 900),
+        SimpleNamespace(page_content="B" * 900),
+        SimpleNamespace(page_content="C" * 900),
+        SimpleNamespace(page_content="D" * 900),
+    ]
+    answer_generation.generate_from_docs(
+        question="Q?",
+        docs=docs,
+        prompt_template=PROMPT,
+        chat_history="",
+        refusal=REFUSAL,
+        local_generate=lambda _p: "no",
+        fallback_enabled=False,
+    )
+    prompt = captured["prompt"]
+    assert "D" not in prompt
+    assert prompt.count("A") <= 400
+    assert "A" * 401 not in prompt
+    assert "B" * 400 in prompt
+    assert "C" * 400 in prompt

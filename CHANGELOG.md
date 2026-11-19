@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Version is defined in `app/core/version.py` and exposed via the API root and `/health` endpoints.
 
+## [1.2.4] - 2026-11-19
+
+### Changed
+
+- Chat history for generation is the last **3 turns** per `conversation_id`
+  (280 characters each, source footers stripped). The process-wide
+  `ConversationBufferMemory` is no longer mixed into `/api/ask` prompts.
+- If Sarvam returns empty visible text (policy 502), retry once with a compact
+  prompt: no history, three-sentence cap.
+- Canned welcome / `hi` turns are not stored in RAG chat history, so the next
+  real question is not prompted with the opener.
+
+## [1.2.3] - 2026-11-19
+
+### Changed
+
+- Ollama embeddings no longer set `num_thread=8` / `num_gpu=-1` (those made
+  warm query embeds ~9s on a 4-vCPU host). `keep_alive=-1` keeps 0.6B loaded.
+- Generation prompt uses the top 3 chunks, 400 characters each.
+- Local `qwen2.5:1.5b` fallback is **off** by default (`LOCAL_LLM_FALLBACK=false`)
+  so a Sarvam miss does not evict the embedding model. `/api/ask` returns **502**.
+- Retrieve candidates: FAQ 12, policy 16, hybrid k 12, `TOP_K` 3.
+- `POST /api/ask` and `/chat` run retrieval+generation in a threadpool.
+- Metadata includes `retrieve_ms` and `generate_ms`. Startup warms MiniLM + one embed.
+- The AI chat silo accepts optional `max_tokens`; HR does not send it yet because
+  256–1024 on the full RAG prompt returned empty Sarvam content.
+
+### Docs
+
+- [`docs/LATENCY_PROPOSAL.md`](docs/LATENCY_PROPOSAL.md) phase 1 implemented.
+
 ## [1.2.2] - 2026-11-19
 
 ### Added

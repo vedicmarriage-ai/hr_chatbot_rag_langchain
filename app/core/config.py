@@ -115,10 +115,10 @@ class Settings(BaseSettings):
     CHUNK_OVERLAP: int = 200
     
     # RAG settings
-    TOP_K_RESULTS: int = 5
+    TOP_K_RESULTS: int = 3
     RERANK_ENABLED: bool = True
-    RERANK_CANDIDATES: int = 20
-    RERANK_CANDIDATES_POLICY: int = 35
+    RERANK_CANDIDATES: int = 12
+    RERANK_CANDIDATES_POLICY: int = 16
     RERANK_MODEL: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     RERANK_MAX_CHUNK_CHARS: int = 800
     RERANK_LONG_CHUNK_CHARS: int = 350
@@ -129,8 +129,8 @@ class Settings(BaseSettings):
     HYBRID_RETRIEVAL_ENABLED: bool = True
     # Best on current Terms/ALL sweep: always-on hybrid, denser BM25 weight
     HYBRID_POLICY_ONLY: bool = False
-    HYBRID_DENSE_K: int = 25
-    HYBRID_SPARSE_K: int = 25
+    HYBRID_DENSE_K: int = 12
+    HYBRID_SPARSE_K: int = 12
     HYBRID_DENSE_WEIGHT: float = 0.3
     HYBRID_SPARSE_WEIGHT: float = 0.7
     SIMILARITY_THRESHOLD: float = 0.7
@@ -144,8 +144,15 @@ class Settings(BaseSettings):
     AI_CHAT_BASE_URL: str = os.getenv("AI_CHAT_BASE_URL", "")
     AI_SERVICE_TOKEN: str = os.getenv("AI_SERVICE_TOKEN", "")
     AI_CHAT_TIMEOUT_SECONDS: float = float(os.getenv("AI_CHAT_TIMEOUT_SECONDS", "30"))
-    LOCAL_LLM_FALLBACK: bool = os.getenv("LOCAL_LLM_FALLBACK", "true").lower() == "true"
+    LOCAL_LLM_FALLBACK: bool = os.getenv("LOCAL_LLM_FALLBACK", "false").lower() == "true"
     LOCAL_FALLBACK_MODEL: str = os.getenv("LOCAL_FALLBACK_MODEL", "qwen2.5:1.5b")
+    # -1 = keep embedding model loaded until Ollama exits
+    OLLAMA_EMBED_KEEP_ALIVE: int = int(os.getenv("OLLAMA_EMBED_KEEP_ALIVE", "-1"))
+    GENERATE_MAX_CHUNKS: int = int(os.getenv("GENERATE_MAX_CHUNKS", "3"))
+    GENERATE_MAX_CHUNK_CHARS: int = int(os.getenv("GENERATE_MAX_CHUNK_CHARS", "400"))
+    GENERATE_MAX_TOKENS: int = int(os.getenv("GENERATE_MAX_TOKENS", "1024"))
+    CHAT_HISTORY_MAX_TURNS: int = int(os.getenv("CHAT_HISTORY_MAX_TURNS", "3"))
+    CHAT_HISTORY_MAX_CHARS: int = int(os.getenv("CHAT_HISTORY_MAX_CHARS", "280"))
 
     # API settings
     API_V1_STR: str = "/api/v1"

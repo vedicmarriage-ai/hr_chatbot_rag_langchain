@@ -34,13 +34,13 @@ class EmbeddingService:
         if embedding_type == EmbeddingType.OLLAMA:
             self.model_key = model_key or settings.DEFAULT_OLLAMA_EMBEDDING_MODEL_KEY
             model_config = settings.AVAILABLE_OLLAMA_EMBEDDING_MODELS[self.model_key]
+            # Do not set num_thread / num_gpu: 8 threads on a 4-vCPU host
+            # made warm embeds ~9s. Ollama picks thread count; keep_alive=-1
+            # keeps qwen3-embedding:0.6b resident (~1.7GB RAM).
             self.embeddings = OllamaEmbeddings(
                 base_url=settings.OLLAMA_BASE_URL,
                 model=model_config["name"],
-                temperature=0,
-                num_thread=8,
-                num_gpu=-1,
-                num_ctx=model_config.get("num_ctx", 8192),
+                keep_alive=settings.OLLAMA_EMBED_KEEP_ALIVE,
             )
         else:
             self.model_key = model_key or settings.DEFAULT_EMBEDDING_MODEL
