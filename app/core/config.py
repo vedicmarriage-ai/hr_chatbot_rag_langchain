@@ -141,6 +141,11 @@ class Settings(BaseSettings):
     GROUNDING_REFUSAL_MESSAGE: str = (
         "I don't have that information in our HR documents."
     )
+    AI_CHAT_BASE_URL: str = os.getenv("AI_CHAT_BASE_URL", "")
+    AI_SERVICE_TOKEN: str = os.getenv("AI_SERVICE_TOKEN", "")
+    AI_CHAT_TIMEOUT_SECONDS: float = float(os.getenv("AI_CHAT_TIMEOUT_SECONDS", "30"))
+    LOCAL_LLM_FALLBACK: bool = os.getenv("LOCAL_LLM_FALLBACK", "true").lower() == "true"
+    LOCAL_FALLBACK_MODEL: str = os.getenv("LOCAL_FALLBACK_MODEL", "qwen2.5:1.5b")
 
     # API settings
     API_V1_STR: str = "/api/v1"

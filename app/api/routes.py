@@ -68,14 +68,17 @@ async def ask_question(request: QuestionRequest):
         else:
             answer = response
         
+        generation = getattr(rag_service, "last_generation", None)
         return QuestionResponse(
             answer=answer,
             sources=sources,
             metadata={
-                "confidence": 0.9,  # You can implement confidence scoring
-                "model": "ollama",
                 "session_id": session_id,
-                "tokens_used": len(answer.split())  # Approximate token count
+                "provider": getattr(generation, "provider", None),
+                "latency_ms": getattr(generation, "latency_ms", None),
+                "prompt_tokens": getattr(generation, "prompt_tokens", None),
+                "completion_tokens": getattr(generation, "completion_tokens", None),
+                "total_tokens": getattr(generation, "total_tokens", None),
             }
         )
     except Exception as e:

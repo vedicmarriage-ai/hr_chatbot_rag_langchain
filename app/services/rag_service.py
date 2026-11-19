@@ -10,6 +10,7 @@ from app.core.rag_stacks import is_valid_combination
 from app.services.llm_service import LLMService
 from app.services.embedding_service import EmbeddingService, EmbeddingType
 from app.services.document_service import DocumentService
+from app.services.answer_generation import generate_from_docs
 from app.services.reranker_service import rerank_documents
 from app.services.hybrid_retriever import BM25Index, hybrid_search
 from app.services.query_intent import should_use_hybrid_retrieval
@@ -221,14 +222,40 @@ Answer:"""
             verbose=True
         )
     
+    def _local_fallback(self, prompt: str) -> str:
+        if getattr(self, "_fallback_llm", None) is None:
+            self._fallback_llm = LLMService(model_name=settings.LOCAL_FALLBACK_MODEL)
+        return self._fallback_llm.generate_response(prompt)
+
+    def _chat_history_text(self) -> str:
+        messages = getattr(getattr(self.memory, "chat_memory", None), "messages", []) or []
+        lines = []
+        for message in messages[-4:]:
+            content = getattr(message, "content", "")
+            if content:
+                lines.append(str(content)[:500])
+        return "\n".join(lines)
+
     def process_message(self, message: str, session_id: str = None) -> tuple[str, str]:
         if not session_id:
             session_id = str(uuid.uuid4())
-            
-        response = self.chain({"question": message})
-        
-        answer = response["answer"]
-        source_docs = response.get("source_documents", [])
+
+        source_docs = self.retriever.invoke(message)
+        generated = generate_from_docs(
+            question=message,
+            docs=source_docs,
+            prompt_template=self.QA_PROMPT,
+            chat_history=self._chat_history_text(),
+            refusal=settings.GROUNDING_REFUSAL_MESSAGE,
+            local_generate=self._local_fallback,
+            fallback_enabled=settings.LOCAL_LLM_FALLBACK,
+        )
+        self.last_generation = generated
+        answer = generated.text
+
+        if generated.provider != "none":
+            self.memory.chat_memory.add_user_message(message)
+            self.memory.chat_memory.add_ai_message(answer)
 
         if settings.GROUNDING_NUMERIC_CHECK:
             answer, bad_claims = enforce_numeric_grounding(
