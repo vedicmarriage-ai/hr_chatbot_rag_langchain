@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Version is defined in `app/core/version.py` and exposed via the API root and `/health` endpoints.
 
+## [1.2.2] - 2026-11-19
+
+### Added
+
+- Greeting short-circuit (`hi` / `hello` / `namaste` / …) returns a VedicMarriage Bot
+  welcome without retrieval or Sarvam (`app/services/greetings.py`).
+- RAG prompt identifies the speaker as **VedicMarriage Bot**.
+
+## [1.2.1] - 2026-11-19
+
+### Added
+
+- Product nginx snippet `deploy/nginx-hr-chat.inc`: same-origin `POST /hr-chat/api/ask` → loopback `:8010`. Without this, SPA nginx returns **405** and the widget shows unavailable.
+- Optional systemd unit `deploy/hr-chatbot.service`.
+- `CORS_ALLOW_ORIGINS` (comma-separated) with production/staging defaults. Same-origin proxy does not rely on CORS.
+- [`docs/PRODUCTION.md`](docs/PRODUCTION.md).
+
 ## [1.2.0] - 2026-11-19
 
 ### Added

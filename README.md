@@ -28,3 +28,5 @@ curl -sS -X POST http://127.0.0.1:8010/api/ask \
 ```
 
 `/health` returns the version. `/chat` accepts `message` and an optional `session_id`.
+
+Production widget path: [`docs/PRODUCTION.md`](docs/PRODUCTION.md) (`/hr-chat` on nginx, not a public `:8010`).

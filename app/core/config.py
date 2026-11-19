@@ -152,6 +152,14 @@ class Settings(BaseSettings):
     
     # Environment settings
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
+    # Comma-separated browser origins. Same-origin nginx /hr-chat does not need CORS;
+    # keep a default list for local Streamlit/dev and accidental cross-origin calls.
+    CORS_ALLOW_ORIGINS: str = os.getenv(
+        "CORS_ALLOW_ORIGINS",
+        "http://localhost:3000,http://localhost:9101,"
+        "https://www.vedicmarriage.com,https://staging.vedicmarriage.com,"
+        "https://vedicmarriage.in,https://www.vedicmarriage.in",
+    )
     
     class Config:
         env_file = ".env"
@@ -160,6 +168,11 @@ class Settings(BaseSettings):
 @lru_cache()
 def get_settings() -> Settings:
     return Settings()
+
+
+def cors_allow_origins(raw: str | None = None) -> List[str]:
+    value = raw if raw is not None else get_settings().CORS_ALLOW_ORIGINS
+    return [origin.strip() for origin in value.split(",") if origin.strip()]
 
 # Create necessary directories
 settings = get_settings()

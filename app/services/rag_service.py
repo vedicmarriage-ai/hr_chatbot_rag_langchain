@@ -10,7 +10,8 @@ from app.core.rag_stacks import is_valid_combination
 from app.services.llm_service import LLMService
 from app.services.embedding_service import EmbeddingService, EmbeddingType
 from app.services.document_service import DocumentService
-from app.services.answer_generation import generate_from_docs
+from app.services.answer_generation import GenerationRecord, generate_from_docs
+from app.services.greetings import WELCOME_MESSAGE, is_greeting
 from app.services.reranker_service import rerank_documents
 from app.services.hybrid_retriever import BM25Index, hybrid_search
 from app.services.query_intent import should_use_hybrid_retrieval
@@ -173,13 +174,16 @@ class RAGService:
             except Exception as exc:
                 print(f"⚠️ BM25 index unavailable, dense-only retrieval: {exc}")
         
-        self.qa_template = """You are an HR assistant for Vedic Marriage. Answer ONLY using the Context below. Be concise and direct.
+        self.qa_template = """You are VedicMarriage Bot, the support assistant for VedicMarriage.com.
+Greet members as VedicMarriage Bot. You help with registration, membership, refunds, and account questions.
+Answer ONLY using the Context below. Be concise and direct.
 
 Rules:
 - Use ONLY facts that appear in the Context. Do not use outside knowledge.
 - If the Context does not contain the answer, reply exactly: "I don't have that information in our HR documents."
 - Do NOT invent numbers, counts, percentages, prices, dates, or statistics. Only state a number if it appears verbatim in the Context.
 - Do not guess or generalize (e.g. typical industry figures). If unsure, use the refusal sentence above.
+- If the user only greets you, do not invent policy facts; invite a membership, registration, or refund question.
 
 Context:
 {context}
@@ -239,6 +243,12 @@ Answer:"""
     def process_message(self, message: str, session_id: str = None) -> tuple[str, str]:
         if not session_id:
             session_id = str(uuid.uuid4())
+
+        if is_greeting(message):
+            self.last_generation = GenerationRecord("canned", 0, None, None, None, WELCOME_MESSAGE)
+            self.memory.chat_memory.add_user_message(message)
+            self.memory.chat_memory.add_ai_message(WELCOME_MESSAGE)
+            return WELCOME_MESSAGE, session_id
 
         source_docs = self.retriever.invoke(message)
         generated = generate_from_docs(
